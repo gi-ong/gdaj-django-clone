@@ -1,3 +1,10 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+
+@admin.register(models.Branch)
+class PageAdmin(admin.ModelAdmin):
+
+    """Page Admin Definition"""
+
+    list_display = ("__str__",)

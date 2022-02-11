@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block page_title %}언론보도{% endblock page_title %}
+{% block head_info %}
+    <meta name="title" content="광덕안정치과의원 커뮤니티" />
+    <meta name="keywords" content="광덕안정치과의원,광덕안정,치과,치과병원" />
+    <meta name="description" content="광덕안정치과의원 커뮤니티 페이지" />
+    <meta name="subject" content="광덕안정치과의원" />
+    <meta property="og:title" content="광덕안정치과의원" />
+    <meta property="og:description" content="광덕안정치과의원" />
+    <meta name="twitter:title" content="광덕안정치과의원" />
+    <meta name="twitter:description" content="광덕안정치과의원 커뮤니티 페이지" />
+    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
+{% endblock head_info %}
+    
+
+    
+{% block body_info %}
+        <div class="container">
+            <div class="pagetop pagetop1">
+                <div class="page_hgroup com">
+                    <h1>커뮤니티</h1>
+                    <ul class="catewrap">
+                        <!-- 활성화시 class.active 효과 추가해주세요 -->
+                        <li class="category">
+                            <a href="#">공지사항 / 이벤트</a>
+                        </li>
+                        <li class="category">
+                            <a href="#">치료 전후사진</a>
+                        </li>
+                        <li class="category">
+                            <a href="#">온라인상담</a>
+                        </li>
+                        <li class="category active">
+                            <a href="#">언론보도</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="contents">
+            <div class="center">
+                <!--20211207 수정 시작  -->
+                <h1 class="subtitle">언론보도</h1>
+                <!--20211207 수정 끝  -->
+                <!-- 게시판 목록 시작 -->
+                <div class="nolist">
+                    <!-- 게시판 페이지 정보 및 버튼 시작 -->
+                    <div id="no_btn_top">
+                        <div class="no_list_total">
+                            <span>
+                                총 <span>3</span> 건
+                            </span>
+                        </div>
+                    </div>
+                    <div class="tbl_wrap">
+                        <table class="text_center">
+                            <caption>온라인 상담 목록</caption>
+                            <!-- 20211207 수정 시작 -->
+                            <colgroup>
+                                <col style="width:185px;">
+                                <col style="width:820px;">
+                                <col style="width:195px;">
+                            </colgroup>
+                            <!-- 20211207 수정 시작 -->
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>제목</th>
+                                    <th>날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="title">
+                                        <a href="#">
+                                            <p class="text_overflow w_530">오픈 이벤트 안내</p>
+                                        </a>
+                                    </td>
+                                    <td>2021.08.31</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="title">
+                                        <a href="#">
+                                            <p class="text_overflow w_530">오픈 이벤트 안내</p>
+                                        </a>
+                                    </td>
+                                    <td>2021.08.31</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="paging">
+                            <span class="paging_control">
+                                <!-- 활성화시 class.active 효과 추가해주세요 -->
+                                <a href="#" class="paging-first"></a>
+                                <a href="#" class="paging-prev"></a>
+                            </span>
+                            <span id=pagingnumber>
+                                <!-- 활성화시 class.active 효과 추가해주세요 -->
+                                <a href="#" class="active">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#">7</a>
+                                <a href="#">8</a>
+                                <a href="#">9</a>
+                                <a href="#">10</a>
+                            </span>
+                            <span class="paging_control">
+                                <!-- 활성화시 class.active 효과 추가해주세요 -->
+                                <a href="#" class="paging-next active"></a>
+                                <a href="#" class="paging-last active"></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock body_info %}

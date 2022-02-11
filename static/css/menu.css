@@ -1,0 +1,147 @@
+/* side : s  */
+/* �ъ씠�쒕찓�� display:block�댁꽌 �ъ슜�섏떆硫대맗�덈떎. */
+div.sidebar {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(24, 36, 77, 0.95);
+    z-index: 5000;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 1160px;
+    height: 955px;
+    margin: 0 auto;
+}
+
+div.sidebar .xIcon {
+    position: absolute;
+    left: 120px;
+    top: 53px;
+}
+
+.sidebar>nav>h1 {
+    margin: 85px auto 50px;
+}
+
+ul.side_list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 500px;
+}
+
+ul.side_list>li {
+    width: 160px;
+}
+
+ul.side_list>li>a {
+    font-size: 34px;
+    font-weight: 500;
+    color: var(--second-font-color);
+}
+
+ul.side_list>li>a:hover {
+    color: #4599e2;
+}
+
+ul.side_list>li>ol {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(151, 139, 139, 0.5);
+    box-sizing: border-box;
+}
+
+ul.side_list>li>ol>li {
+    line-height: 2;
+}
+
+ul.side_list>li>ol>li a {
+    letter-spacing: -0.035em;
+    font-size: 18px;
+    color: #999999;
+}
+
+ul.side_list>li>ol>li a:hover {
+    color: var(--second-font-color);
+}
+
+@media screen and (max-width:1679px) {
+    div.sidebar .xIcon{
+        left: 4.5%;
+    }
+
+    div.sidebar .xIcon img{
+        width: 16px;
+    }
+} 
+@media screen and (max-width:1200px) {
+    div.sidebar .xIcon{
+        left: 15px;
+    }
+} 
+/* side : e  */
+
+
+/* .top_btn */
+.qwrap {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    margin: 0 auto;
+    background: transparent;
+    z-index: 2100;
+}
+
+.quick {
+    position: relative;
+    max-width: 1920px;
+    min-width: 1280px;
+    margin: 0 auto;
+    z-index: 2100;
+}
+
+.quick .con_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 90px;
+    bottom: 154px;
+    height: 85px;
+    width: 60px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    background-color: rgb(0, 78, 207);
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.quick .con_btn a {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.quick .con_btn a img {
+    width: 20px;
+    height: 20px;
+}
+
+.quick .con_btn a p {
+    color: var(--second-font-color);
+}
+
+.quick .top_btn {
+    position: absolute;
+    right: 90px;
+    bottom: 92.4px;
+}

@@ -1,0 +1,61 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block page_title %}{% endblock page_title %} | 광덕안정치과</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name="author" content="광덕안정치과의원" />
+        <meta name="copyright" content="GDAJ DENTAL CLINIC" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="광덕안정치과의원" />
+        <meta property="og:image" content="//cdn.miranda.gdaj/dentalmain/img/assets/logo.png" />
+        <meta property="og:url" content="http://gdajdental.co.kr/" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:image:width" content="287" />
+        <meta property="og:image:height" content="75" />
+        <meta name="twitter:card" content="summary" />
+        <link rel="canonical" href="http://gdajdental.co.kr/" />
+        <link rel="stylesheet" href="{% static "css/root.css" %}">
+        <link rel="stylesheet" href="{% static "css/reset.css" %}" />
+        <link rel="stylesheet" href="{% static "css/fonts.css" %}" />
+        <link rel="stylesheet" href="{% static "css/menu.css" %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script src="//cdn.gdajdental.gdaj/lib/jquery-3.6.0.min.js"></script>
+        <script src="//cdn.gdajdental.gdaj/lib/prefixfree.min.js"></script>
+        <link rel="apple-touch-icon" sizes="57x57" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        {% block head_info %}{% endblock head_info %}
+    </head>
+    {% block script_info %}
+    {% endblock script_info %}
+    <body>
+        <div id="wrapper">
+            {% include "partials/header.html" %}
+            {% block body_info %}
+            {% endblock body_info %}
+            {% include "partials/footer.html" %}
+        </div>
+    </body>
+        
+    
+</html>
