@@ -1,37 +1,39 @@
+{% load static %}
 <header class="main_top_div" id="toph">
     <nav class="top_nav">
         <!-- 햄버거 버튼 누르면 자바스크립트로 사이드메뉴 열리게 해주세요. -->
         <a href="javascript:void(0);"  class="menuicon" id="main_menuicon">
-            <img src="//cdn.gdajdental.gdaj/img/assets/main_menuicon.png" alt="메뉴 버튼" />
+            <img src="{% static "img/assets/main_menuicon.png" %}" alt="메뉴 버튼" />
         </a>
         <h1 class="logo">
-            <a href="#">
-                <img src="//cdn.gdajdental.gdaj/img/assets/logo_top.png" alt="로고" />
+            <a href="/">
+                <img src="{% static "img/assets/logo_top.png" %}" alt="로고" />
             </a>
         </h1>
+        <div class="login_wrap" style="margin-right:9rem; color:white; cursor:pointer;">
+            
+            <span id="login_btn" class="login_btn_pop">로그인</span>
+            
+        </div>
         <div class="select" id="main_top_category">
             <a href="javascript:void(0)">
                 <span>지점안내</span>
-                <img src="//cdn.gdajdental.gdaj/img/assets/expand_more.svg" alt="확장">
+                <img src="{% static "img/assets/expand_more.svg" %}" alt="확장">
             </a>
         </div>
         <div class="seltogether" id="main_top_category_sub">
-            <a href="#"><span>이수점(대표)</span></a>
-            <a href="#"><span>동작이수점</span></a>
-            <a href="#"><span>강동길동점</span></a>
-            <a href="#"><span>강동길동점</span></a>
+            <a href="intro/branch/isu"><span>이수점(대표)</span></a>
         </div>
-        <!-- 20211108 수정끝 -->
     </nav>
     <nav class="bot_nav">
         <ul class="menu">
-            <li><a href="#">치과소개</a></li>
-            <li><a href="#">임플란트</a></li>
-            <li><a href="#">치아교정</a></li>
-            <li><a href="#">심미치료</a></li>
-            <li><a href="#">일반치료</a></li>
-            <li><a href="#">커뮤니티</a></li>
-            <li><a href="#">온라인 예약</a></li>
+            <li><a href="intro">치과소개</a></li>
+            <li><a href="implant">임플란트</a></li>
+            <li><a href="align">치아교정</a></li>
+            <li><a href="beauty">심미치료</a></li>
+            <li><a href="general">일반치료</a></li>
+            <li><a href="qna">커뮤니티</a></li>
+            <li><a href="https://map.naver.com/v5/entry/place/1601243099?placePath=%2Fbooking%3FbookingRedirectUrl=https:%2F%2Fm.booking.naver.com%2Fbooking%2F13%2Fbizes%2F576526%26entry=plt" target="_blank">온라인 예약</a></li>
         </ul>
     </nav>
 </header>

@@ -2,6 +2,7 @@
 {% load static %}
 {% block page_title %}메인화면{% endblock page_title %}
 {% block head_info %}
+
     <meta name="title" content="광덕안정치과의원" />
     <meta name="description" content="광덕안정치과의원 메인 페이지" />
     <meta name="keywords" content="광덕안정치과의원,광덕안정,치과,치과병원" />
@@ -11,143 +12,233 @@
     <meta name="twitter:title" content="광덕안정치과의원" />
     <meta name="twitter:description" content="광덕안정치과의원 메인 페이지" />
     <link rel="stylesheet" href="{% static "css/main.css" %}" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/swiper.min.css" />
     <script src="//cdn.gdajdental.gdaj/js/common.js"></script>
-    <script src="//cdn.gdajdental.gdaj/js/main.js"></script>
-    <script src="//cdn.gdajdental.gdaj/lib/swiper.min.js"></script>
-    <script src="//cdn.gdajdental.gdaj/lib/jquery-ui.min.js"></script>
+    <style media="" data-href="https://unpkg.com/aos@2.3.1/dist/aos.css"></style>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{% static "js/main.js"%}"></script>
+    <script src="{% static "lib/swiper.min.js"%}"></script>
+    <script src="{% static "lib/jquery-ui.min.js"%}"></script>
 {% endblock head_info %}
 {% block script_info %}
-<script>
-    //20211108 수정시작 
-    let main_scroll = true; // 메인 상단 소개 페이지 스크롤 관련
-    $(document).ready(function () {
-        // 메인 상단 소개 페이지 스크롤 관련
-        $(window).scrollTop(0);
 
-
-        function chk_page(e) {
-            if (main_scroll && e.deltaY > 0) {
-                delete_swiper();
+    <style>
+        {% comment %} for loginform from sub.css {% endcomment %}
+        .counsel_write_btn .counsel_cancel {
+            background-color: #b8b8b8;
+            color: #ffffff;
+        }
+        .counsel_write_btn button {
+            width: 90px;
+            height: 45px;
+            border: 1px solid #b8b8b8;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    
+        .hd_pops {
+            position: absolute;
+            border: 1px solid #e9e9e9;
+            background: #fff;
+            z-index: 2000;
+        }
+        .hd_pops img {
+            max-width: 100%;
+        }
+        .hd_pops_footer {
+            padding: 0;
+            background: #000;
+            color: #fff;
+            text-align: left;
+            position: relative;
+        }
+        .hd_pops_footer .hd_pops_reject {
+            background: #000;
+            text-align: left;
+        }
+    
+        .hd_pops_footer button {
+            padding: 10px;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+        }
+        .hd_pops_footer .hd_pops_close {
+            background: #393939;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>    
+    <script>
+            $(document).ready(function () {
+                // Navigation menu scroll event
+                $('#sech').css('opacity', 0);
+                document.addEventListener('scroll', ()=> {
+                    console.log(document.documentElement.scrollTop)
+                    if(document.documentElement.scrollTop > 1080){
+                        $('#sech').css('opacity', 1);
+                    }else{
+                        $('#sech').css('opacity', 0);
+                    }
+                })
+            })
+    </script>
+    <style>
+            #sech{
+                transition: opacity 0.5s;
             }
-        }
-        const el = document.querySelector('body');
-        el.onwheel = chk_page;
-
-        function delete_swiper() {
-            $('#swiper').animate({
-                'height': 0
-            }, function () {
-                $('.main_top_div').stop().remove();
-                main_scroll = false;
-            });
-        }
-        $(window).scroll(function () {
-            if (main_scroll) $(window).scrollTop(0);
-        });
-
-        // main menu 대표, 지점 관련 jquery
-        $("#main_top_category").mouseenter(function () {
-            $('#main_top_category_sub').css({
-                'display': 'block'
-            });
-            return false;
-        });
-
-        $('#main_top_category_sub').mouseleave(function () {
-            $('#main_top_category_sub').fadeOut();
-            return false;
-        });
-    });
-    //20211108 수정끝
-</script>
+    </style>
+    <script>
+        function set_cookie(name, value, expirehours, domain)
+            {
+                var today = new Date();
+                today.setTime(today.getTime() + (60*60*1000*expirehours));
+                document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + today.toGMTString() + ";";
+                if (domain) {
+                    document.cookie += "domain=" + domain + ";";
+                }
+            }
+        $(document).ready(function(){
+            // Popup Button
+                $(function() {
+                    $(".hd_pops_reject").click(function() {
+                        var id = $(this).attr('class').split(' ');
+                        var ck_name = id[1];
+                        var exp_time = parseInt(id[2]);
+                        $("#"+id[1]).css("display", "none");
+                        set_cookie(ck_name, 1, exp_time, '.'+location.host);
+                    });
+                    $('.hd_pops_close').click(function() {
+                        var idb = $(this).attr('class').split(' ');
+                        $('#'+idb[1]).css('display','none');
+                    });
+                });
+        })
+    </script>
 {% endblock script_info %}
 {% block body_info %}
     <!-- 메인 배너 슬라이더 -->
-    <div class="swiper" id="swiper">
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <div class="text">
+    <div class="swiper swiper-container-initialized swiper-container-horizontal" id="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="3" style="width: 736px;">
+                <div class="text">
                         <p>Gdaj Dental Difference</p>
                         <h1>
-                            수술없이 아름답게 <br />
-                            광덕안정치아교정
-                        </h1>
-                        <p>
-                            광덕안정치과는 돌출입,주걱턱,비대칭도 수술없이 치아교정만으로 치료가능합니다. <br />
-                            이상적인 각도와 비율로 아름다운 얼굴 라인을 완성합니다.
-                        </p>
-                        <!-- 20211119 수정 시작 -->
-                        <p class="arrow">
-                            <a href="http://www.gdajdental.mono/braces/knowhow"><img src="//cdn.gdajdental.gdaj/img/assets/nextarrow.png" alt="바로가기" /></a>
-                        </p>
-                        <!-- 20211119 수정 끝 -->
-                    </div>
-                    <img src="//cdn.gdajdental.gdaj/img/btypebg.png" alt="치아교정 배너사진">
-                </div>
-                <div class="swiper-slide">
-                    <div class="text">
-                        <p>Gdaj Dental Difference</p>
-                        <h1>
-                            작은 부분도 놓치지 <br />
-                            않는 충치
-                        </h1>
-                        <p>
-                            자연치아 살리기 중심 치료, 광덕안정치과는 자연치아를 소중하게 생각합니다.
-                        </p>
-                        <!-- 20211119 수정 시작 -->
-                        <p class="arrow">
-                            <a href="#"><img src="//cdn.gdajdental.gdaj/img/assets/nextarrow.png" alt="바로가기" /></a>
-                        </p>
-                        <!-- 20211119 수정 끝 -->
-                    </div>
-                    <img src="//cdn.gdajdental.gdaj/img/btypebg2.png" alt="충치 배너사진">
-                </div>
-                <div class="swiper-slide">
-                    <div class="text">
-                        <p>Gdaj Dental Difference</p>
-                        <h1>
-                            자연치아와 같은 편안함 <br />
-                            광덕안정 임플란트
-                        </h1>
-                        <p>
-                            임플란트 크기, 길이부터 맞춤형 보철까지 정품재료만을 사용하고 <br />
-                            구강구조에 맞춰 제작해 자연치에 더 가까운 맞춤형 보철만 사용합니다.
-
-                        </p>
-                        <!-- 20211119 수정 시작 -->
-                        <p class="arrow">
-                            <a href="http://www.gdajdental.mono/implant/knowhow"><img src="//cdn.gdajdental.gdaj/img/assets/nextarrow.png" alt="바로가기" /></a>
-                        </p>
-                        <!-- 20211119 수정 끝 -->
-                    </div>
-                    <img src="//cdn.gdajdental.gdaj/img/btypebg3.png" alt="임플란트 배너사진">
-                </div>
-                <div class="swiper-slide">
-                    <div class="text">
-                        <p>Gdaj Dental Difference</p>
-                        <h1>
-                            치아미백치료, <br />
+                            치아미백치료, <br>
                             이제 하루면 충분합니다.
                         </h1>
                         <p>
-                            1일 3회 미백 집중 시술로 더 큰 효과를 눈으로 직접 확인 할수 있습니다. <br />
+                            1일 3회 미백 집중 시술로 더 큰 효과를 눈으로 직접 확인 할수 있습니다. <br>
                             특수 미백제로 1일 내원시 3번의 집중 시술이 가능하여 단 시간에 치아를 하얗게 만들어 드립니다.
-
                         </p>
-                        <!-- 20211119 수정 시작 -->
                         <p class="arrow">
-                            <a href="http://www.gdajdental.mono/aesthetic/knowhow"><img src="//cdn.gdajdental.gdaj/img/assets/nextarrow.png" alt="바로가기" /></a>
+                            <a href="/beauty/1day"><img src="{% static "img/assets/nextarrow.png" %}" alt="바로가기"></a>
                         </p>
-                        <!-- 20211119 수정 끝 -->
-                    </div>
-                    <img src="//cdn.gdajdental.gdaj/img/btypebg4.png" alt="치아미백치료 배너사진">
                 </div>
+                <img src="{% static "img/assets/btypebg4.png" %}" alt="치아미백치료 배너사진">
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 1011px;">
+                    <div class="text">
+                        <p data-aos="fade-up" data-aos-duration="1000" class="aos-init aos-animate">Gdaj Dental Difference</p>
+                        <h1 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="aos-init aos-animate">
+                            수술없이 아름답게<br>
+                            광덕안정치아교정
+                        </h1>
+                        <p data-aos="fade" data-aos-delay="1000" data-aos-duration="600" class="aos-init aos-animate">
+                            광덕안정치과는 돌출입,주걱턱,비대칭도 수술없이 치아교정만으로 치료가능합니다. <br>
+                            이상적인 각도와 비율로 아름다운 얼굴 라인을 완성합니다.
+                        </p>
+                        <p class="arrow">
+                            <a href="/align"><img src="{% static "img/assets/nextarrow.png" %}" alt="바로가기"></a>
+                        </p>
+                    </div>
+                    <img src="{% static "img/assets/btypebg.png" %}" alt="치아교정 배너사진">
+            </div>
+            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 1011px;">
+                <div class="text">
+                    <p>Gdaj Dental Difference</p>
+                    <h1>
+                        작은 부분도 놓치지 <br>
+                        않는 충치
+                    </h1>
+                    <p>
+                        자연치아 살리기 중심 치료, 광덕안정치과는 자연치아를 소중하게 생각합니다.
+                    </p>
+                    <!-- 20211231 수정 시작  -->
+                    <p class="arrow">
+                        <a href="/gnral/type"><img src="{% static "img/assets/nextarrow.png" %}" alt="바로가기"></a>
+                    </p>
+                    <!-- 20211231 수정 끝  -->
+                </div>
+                <img src="{% static "img/assets/btypebg2.png" %}" alt="충치 배너사진">
+            </div>
+            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" style="width: 1011px;">
+                <div class="text">
+                    <p>Gdaj Dental Difference</p>
+                    <h1>
+                        자연치아와 같은 편안함 <br>
+                        광덕안정 임플란트
+                    </h1>
+                    <p>
+                        임플란트 크기, 길이부터 맞춤형 보철까지 정품재료만을 사용하고 <br>
+                        구강구조에 맞춰 제작해 자연치에 더 가까운 맞춤형 보철만 사용합니다.
+
+                    </p>
+                    <!-- 20211231 수정 시작  -->
+                    <p class="arrow">
+                        <a href="/implant"><img src="{% static "img/assets/nextarrow.png" %}" alt="바로가기"></a>
+                    </p>
+                    <!-- 20211231 수정 끝  -->
+                </div>
+                <img src="{% static "img/assets/btypebg3.png" %}" alt="임플란트 배너사진">
+            </div>
+            <div class="swiper-slide" data-swiper-slide-index="3" style="width: 1011px;">
+                <div class="text">
+                    <p>Gdaj Dental Difference</p>
+                    <h1>
+                        치아미백치료, <br>
+                        이제 하루면 충분합니다.
+                    </h1>
+                    <p>
+                        1일 3회 미백 집중 시술로 더 큰 효과를 눈으로 직접 확인 할수 있습니다. <br>
+                        특수 미백제로 1일 내원시 3번의 집중 시술이 가능하여 단 시간에 치아를 하얗게 만들어 드립니다.
+
+                    </p>
+                    <!-- 20211231 수정 시작  -->
+                    <p class="arrow">
+                        <a href="/beauty/1day"><img src="{% static "img/assets/nextarrow.png" %}" alt="바로가기"></a>
+                    </p>
+                    <!-- 20211231 수정 끝  -->
+                </div>
+                <img src="{% static "img/assets/btypebg4.png" %}" alt="치아미백치료 배너사진">
+            </div>
+            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 1011px;">
+                <div class="text">
+                    <p data-aos="fade-up" data-aos-duration="1000" class="aos-init aos-animate">Gdaj Dental Difference</p>
+                    <h1 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="aos-init aos-animate">
+                        수술없이 아름답게<br>
+                        광덕안정치아교정
+                    </h1>
+                    <p data-aos="fade" data-aos-delay="1000" data-aos-duration="600" class="aos-init aos-animate">
+                        광덕안정치과는 돌출입,주걱턱,비대칭도 수술없이 치아교정만으로 치료가능합니다. <br>
+                        이상적인 각도와 비율로 아름다운 얼굴 라인을 완성합니다.
+                    </p>
+                    <p class="arrow">
+                        <a href="/align"><img src="{% static "img/assets/nextarrow.png" %}" alt="바로가기"></a>
+                    </p>
+                </div>
+                <img src="{% static "img/assets/btypebg.png" %}" alt="치아교정 배너사진">
+            </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+                <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span>
+                <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span>
+                <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span>
+        </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
+        
     <!-- 20211102 수정 끝(이미지,텍스트) -->
     <div class="qwrap">
             <div class="quick">
@@ -170,45 +261,47 @@
                 <div class="l">
                     <!-- 20211109 수정 시작 (아이콘 변경)-->
                     <a href="javascript:void(0);" class="menuicon" id="menuicon">
-                        <img src="//cdn.gdajdental.gdaj/img/assets/main_menuicon.png" alt="메뉴 버튼" />
+                        <img src="{% static "img/assets/main_menuicon.png" %}" alt="메뉴 버튼" />
                     </a>
                     <!-- 20211109 수정 끝 -->
                     <h1 class="logo">
-                        <a href="#">
+                        <a href="/">
                             <!-- 20211206 수정 시작 (이미지)-->
-                            <img src="//cdn.gdajdental.gdaj/img/assets/logo2.png" alt="로고" />
+                            <img src="{% static "img/assets/logo.png" %}" alt="로고" />
                             <!-- 20211206 수정 시작 -->
                         </a>
                     </h1>
                 </div>
                 <ul class="menu">
-                    <li><a href="#">치과소개</a></li>
-                    <li><a href="#">임플란트</a></li>
-                    <li><a href="#">치아교정</a></li>
-                    <li><a href="#">심미치료</a></li>
-                    <li><a href="#">일반치료</a></li>
-                    <li><a href="#">커뮤니티</a></li>
-                    <li><a href="#">온라인 예약</a></li>
+                    <li><a href="intro">치과소개</a></li>
+                    <li><a href="implant">임플란트</a></li>
+                    <li><a href="align">치아교정</a></li>
+                    <li><a href="beauty">심미치료</a></li>
+                    <li><a href="general">일반치료</a></li>
+                    <li><a href="qna">커뮤니티</a></li>
+                    <li><a href="https://map.naver.com/v5/entry/place/1601243099?placePath=%2Fbooking%3FbookingRedirectUrl=https:%2F%2Fm.booking.naver.com%2Fbooking%2F13%2Fbizes%2F576526%26entry=plt" target="_blank">온라인 예약</a></li>
                 </ul>
-                <div class="selwrap">
-                    <div id="top_category" class="select">
-                        <a href="javascript:void(0);">
-                            <!-- 20211109 수정 시작(이미지변경) -->
-                            <span>지점안내</span>
-                            <img class="top_category_more_b2" src="//cdn.gdajdental.gdaj/img/assets/expand_more_b2.png"
-                                alt="확장">
-                            <img class="top_category_more" src="//cdn.gdajdental.gdaj/img/assets/expand_more2.png"
-                                alt="확장">
-
-                        </a>
+                <div class="r">
+                    <div class="login_wrap" style="margin-right: 1.5em; color: #000; cursor:pointer;">
+                        <span id="login_btn2" class="login_btn_pop">로그인</span>
                     </div>
-                    <div class="seltogether" id="top_category_sub">
-                        <a href="#"><span>이수점(대표)</span></a>
-                        <a href="#"><span>동작이수점</span></a>
-                        <a href="#"><span>강동길동점</span></a>
+                    <div class="selwrap">
+                        <div id="top_category" class="select">
+                            <a href="javascript:void(0);">
+                                <!-- 20211109 수정 시작(이미지변경) -->
+                                <span>지점안내</span>
+                                <img class="top_category_more_b2" src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/expand_more_b2.png" alt="확장">
+                                <img class="top_category_more" src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/expand_more2.png" alt="확장">
+    
+                            </a>
+                        </div>
+                        <div class="seltogether" id="top_category_sub">
+                            <a href="/branch/isu/"><span>이수점(대표)</span></a>
+                        </div>
+                        <!-- 20211109 수정 끝 -->
                     </div>
-                    <!-- 20211109 수정 끝 -->
                 </div>
+                <!-- 20211231 수정 끝  -->
             </nav>
     </header>
 

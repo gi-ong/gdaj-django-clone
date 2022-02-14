@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_title %}원데이 치아미백{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 치아미백" />
@@ -9,8 +10,8 @@
     <meta property="og:description" content="광덕안정치과의원 치아미백 " />
     <meta name="twitter:title" content="광덕안정치과의원 치아미백 " />
     <meta name="twitter:description" content="광덕안정치과의원 치아미백 페이지" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub_whitening.css" />
+    <link rel="stylesheet" href="{% static "css/sub_whitening.css" %}" />
+    {% include "mixins/sub_style.html" %}
 {% endblock head_info %}
 
 {% block body_info %}

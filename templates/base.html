@@ -4,6 +4,25 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% comment %} <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/BycHQdSIhzR_1EcOLw2mOzYQ/recaptcha__ko.js" crossorigin="anonymous" integrity="sha384-hBRd2oU2f3gv/HV/cnoas4lLXoJnRi/uQ4EZsLC8dlsMIOhKg2IntfWnYIPkzbpP"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-P82SNZ5"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RMFECY4VDC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-RMFECY4VDC');
+    </script> {% endcomment %}
+    <!-- Gtag End - Google Analytics -->
+    <!-- Google Tag Manager -->
+    {% comment %} <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P82SNZ5');</script> {% endcomment %}
+    <!-- End Google Tag Manager -->
         <title>{% block page_title %}{% endblock page_title %} | 광덕안정치과</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -21,41 +40,58 @@
         <link rel="stylesheet" href="{% static "css/root.css" %}">
         <link rel="stylesheet" href="{% static "css/reset.css" %}" />
         <link rel="stylesheet" href="{% static "css/fonts.css" %}" />
+        <link rel="stylesheet" href="{% static "css/swiper.min.css" %}" />
         <link rel="stylesheet" href="{% static "css/menu.css" %}" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <script src="//cdn.gdajdental.gdaj/lib/jquery-3.6.0.min.js"></script>
-        <script src="//cdn.gdajdental.gdaj/lib/prefixfree.min.js"></script>
-        <link rel="apple-touch-icon" sizes="57x57" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/favicon-16x16.png">
-        <link rel="manifest" href="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/manifest.json">
+        <script src="{% static "lib/jquery-3.6.0.min.js"%}"></script>
+        <script src="{% static "lib/prefixfree.min.js"%}"></script>
+        <link rel="apple-touch-icon" sizes="57x57" href="{% static "img/favicon/apple-icon-57x57.png" %}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{% static "img/favicon/apple-icon-60x60.png" %}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/favicon/apple-icon-72x72.png" %}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static "img/favicon/apple-icon-76x76.png" %}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/favicon/apple-icon-114x114.png" %}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/favicon/apple-icon-120x120.png" %}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static "img/favicon/apple-icon-144x144.png" %}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{% static "img/favicon/apple-icon-152x152.png" %}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicon/apple-icon-180x180.png" %}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static "img/favicon/android-icon-192x192.png" %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon/favicon-32x32.png" %}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{% static "img/favicon/favicon-96x96.png" %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/favicon/favicon-16x16.png" %}">
+        <link rel="manifest" href="{% static "img/favicon/manifest.json" %}">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="//cdn.gdaj.net/dentalweb/cdn/statics/img/favicon/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="{% static "img/favicon/ms-icon-144x144.png" %}">
         <meta name="theme-color" content="#ffffff">
 
+
         {% block head_info %}{% endblock head_info %}
+        {% block script_info %}
+        {% endblock script_info %}
     </head>
-    {% block script_info %}
-    {% endblock script_info %}
-    <body>
-        <div id="wrapper">
+ 
+    <body cz-shortcut-listen="true">
+        <div id="wrap">
             {% include "partials/header.html" %}
             {% block body_info %}
             {% endblock body_info %}
             {% include "partials/footer.html" %}
         </div>
-    </body>
-        
-    
+    </body>    
+    <script>
+        function closeItemscoutWebExtension() {
+            let itemscoutWebExtension = document.getElementById('itemscoutWebExtension');
+            if (itemscoutWebExtension)
+                itemscoutWebExtension.remove();
+        }
+        function handleItemscoutExtensionMessage(message) {
+            if(message.data === "itemscoutWebExtensionClose")
+                closeItemscoutWebExtension();
+        }
+        if (window.addEventListener) {
+            window.addEventListener("message", handleItemscoutExtensionMessage);
+        } else {
+            window.attachEvent("onmessage", handleItemscoutExtensionMessage);
+        }
+    </script>    
 </html>
