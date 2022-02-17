@@ -1,0 +1,21 @@
+<script src="/static/js/sub.js"></script>
+<script>
+    $(document).ready(function () {
+        // main menu 대표, 지점 관련 jquery
+        $("#main_top_category").mouseenter(function () {
+            $('#main_top_category_sub').css({
+                'display': 'block'
+            });
+            return false;
+        });
+
+        $('#main_top_category_sub').mouseleave(function () {
+            $('#main_top_category_sub').fadeOut();
+            return false;
+        });
+        $(".login_btn_pop").click(function () {
+            $('#login').show();
+            return false;
+        });
+    });
+</script>

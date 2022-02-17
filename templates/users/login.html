@@ -1,1 +1,8 @@
-<h1> login page </h1>
+    <div>
+        {% include 'mixins/auth/auth_form.html' with form=form cta="Log in" %}
+        <div>
+            <span>Don't have an account?</span>
+            <a href="{%url 'users:signup'%}">Sign up</a>
+        </div>
+
+    </div>

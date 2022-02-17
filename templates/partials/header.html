@@ -11,9 +11,12 @@
             </a>
         </h1>
         <div class="login_wrap" style="margin-right:9rem; color:white; cursor:pointer;">
-            
-            <span id="login_btn" class="login_btn_pop">로그인</span>
-            
+            {% if user.is_authenticated %}
+                <span onclick="location.href='/users/my'">pgo9164님</span>
+                <span id="logout_btn" onclick="window.location.href='/users/logout'">로그아웃</span>
+            {% else %}
+                <span id="login_btn" class="login_btn_pop">로그인</span>
+            {% endif %}
         </div>
         <div class="select" id="main_top_category">
             <a href="javascript:void(0)">
@@ -27,12 +30,12 @@
     </nav>
     <nav class="bot_nav">
         <ul class="menu">
-            <li><a href="intro">치과소개</a></li>
-            <li><a href="implant">임플란트</a></li>
-            <li><a href="align">치아교정</a></li>
-            <li><a href="beauty">심미치료</a></li>
-            <li><a href="general">일반치료</a></li>
-            <li><a href="qna">커뮤니티</a></li>
+            <li><a href="/intro">치과소개</a></li>
+            <li><a href="/implant">임플란트</a></li>
+            <li><a href="/align">치아교정</a></li>
+            <li><a href="/beauty">심미치료</a></li>
+            <li><a href="/general">일반치료</a></li>
+            <li><a href="/qna">커뮤니티</a></li>
             <li><a href="https://map.naver.com/v5/entry/place/1601243099?placePath=%2Fbooking%3FbookingRedirectUrl=https:%2F%2Fm.booking.naver.com%2Fbooking%2F13%2Fbizes%2F576526%26entry=plt" target="_blank">온라인 예약</a></li>
         </ul>
     </nav>

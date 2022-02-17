@@ -238,331 +238,402 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
-        
-    <!-- 20211102 수정 끝(이미지,텍스트) -->
-    <div class="qwrap">
-            <div class="quick">
-                <div class="con_btn">
-                    <a href="#">
-                        <img src="//cdn.gdajdental.gdaj/img/assets/consultation.png" alt="상담 버튼" />
-                        <p>상담</p>
+
+    <header id="sech" style="opacity: 0;">
+        <nav>
+            <!-- 햄버거 버튼 누르면 자바스크립트로 사이드메뉴 열리게 해주세요. -->
+            <div class="l">
+                <!-- 20211109 수정 시작 (아이콘 변경)-->
+                <a href="javascript:void(0);" class="menuicon" id="menuicon">
+                    <img src="/static/img/assets/main_menuicon.png" alt="메뉴 버튼">
+                </a>
+                <!-- 20211109 수정 끝 -->
+                <h1 class="logo">
+                    <a href="/">
+                        <img src="/static/img/assets/logo.png" alt="로고">
                     </a>
+                </h1>
+            </div>
+            <ul class="menu">
+                <li><a href="/intro">치과소개</a></li>
+                <li><a href="/implant">임플란트</a></li>
+                <li><a href="/align">치아교정</a></li>
+                <li><a href="/beauty">심미치료</a></li>
+                <li><a href="/general">일반치료</a></li>
+                <li><a href="/notice">커뮤니티</a></li>
+                <!-- 20211231 수정 시작  -->
+                <li><a href="https://map.naver.com/v5/entry/place/1601243099?placePath=%2Fbooking%3FbookingRedirectUrl=https:%2F%2Fm.booking.naver.com%2Fbooking%2F13%2Fbizes%2F576526%26entry=plt" target="_blank">온라인 예약</a></li>
+                <!-- 20211231 수정 끝  -->
+            </ul>
+            <!-- 20211231 수정 시작  -->
+            <div class="r">
+                <div class="login_wrap" style="margin-right: 1.5em; color: #000; cursor:pointer;">
+                    <span id="login_btn2" class="login_btn_pop">로그인</span>
                 </div>
-                <div class="top_btn">
-                    <a href="#slide">
-                        <img src="//cdn.gdajdental.gdaj/img/assets/top.png" alt="위로가기 버튼" />
-                    </a>
+                <div class="selwrap">
+                    <div id="top_category" class="select">
+                        <a href="javascript:void(0);">
+                            <!-- 20211109 수정 시작(이미지변경) -->
+                            <span>지점안내</span>
+                            <img class="top_category_more_b2" src="/static/img/assets/expand_more_b2.png" alt="확장">
+                            <img class="top_category_more" src="/static/img/assets/expand_more2.png" alt="확장">
+
+                        </a>
+                    </div>
+                    <div class="seltogether" id="top_category_sub">
+                        <a href="/branch/isu/"><span>이수점(대표)</span></a>
+                    </div>
+                    <!-- 20211109 수정 끝 -->
                 </div>
             </div>
-    </div>
-    <header id="sech">
-            <nav>
-                <!-- 햄버거 버튼 누르면 자바스크립트로 사이드메뉴 열리게 해주세요. -->
-                <div class="l">
-                    <!-- 20211109 수정 시작 (아이콘 변경)-->
-                    <a href="javascript:void(0);" class="menuicon" id="menuicon">
-                        <img src="{% static "img/assets/main_menuicon.png" %}" alt="메뉴 버튼" />
-                    </a>
-                    <!-- 20211109 수정 끝 -->
-                    <h1 class="logo">
-                        <a href="/">
-                            <!-- 20211206 수정 시작 (이미지)-->
-                            <img src="{% static "img/assets/logo.png" %}" alt="로고" />
-                            <!-- 20211206 수정 시작 -->
-                        </a>
-                    </h1>
-                </div>
-                <ul class="menu">
-                    <li><a href="intro">치과소개</a></li>
-                    <li><a href="implant">임플란트</a></li>
-                    <li><a href="align">치아교정</a></li>
-                    <li><a href="beauty">심미치료</a></li>
-                    <li><a href="general">일반치료</a></li>
-                    <li><a href="qna">커뮤니티</a></li>
-                    <li><a href="https://map.naver.com/v5/entry/place/1601243099?placePath=%2Fbooking%3FbookingRedirectUrl=https:%2F%2Fm.booking.naver.com%2Fbooking%2F13%2Fbizes%2F576526%26entry=plt" target="_blank">온라인 예약</a></li>
-                </ul>
-                <div class="r">
-                    <div class="login_wrap" style="margin-right: 1.5em; color: #000; cursor:pointer;">
-                        <span id="login_btn2" class="login_btn_pop">로그인</span>
-                    </div>
-                    <div class="selwrap">
-                        <div id="top_category" class="select">
-                            <a href="javascript:void(0);">
-                                <!-- 20211109 수정 시작(이미지변경) -->
-                                <span>지점안내</span>
-                                <img class="top_category_more_b2" src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/expand_more_b2.png" alt="확장">
-                                <img class="top_category_more" src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/expand_more2.png" alt="확장">
-    
-                            </a>
-                        </div>
-                        <div class="seltogether" id="top_category_sub">
-                            <a href="/branch/isu/"><span>이수점(대표)</span></a>
-                        </div>
-                        <!-- 20211109 수정 끝 -->
-                    </div>
-                </div>
-                <!-- 20211231 수정 끝  -->
-            </nav>
+            <!-- 20211231 수정 끝  -->
+        </nav>
     </header>
 
     <div class="container">
-            <div class="page" id="gdaj">
-                <div class="center">
-                    <h1>GDAJ Dental Clinic</h1>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <div class="imgbox ">
-                                    <img src="//cdn.gdajdental.gdaj/img/implant.png" alt="임플란트" />
-                                    <div class="text">
-                                        <p>임플란트</p>
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/line.png" alt="선" />
-                                        <p>내 치아같은 1:1 임플란트</p>
-                                    </div>
+        <div class="page" id="gdaj">
+            <div class="center">
+                <h1 data-aos="zoom-out" data-aos-easing="ease-in-out" class="aos-init">GDAJ Dental Clinic</h1>
+                <ul>
+                    <li data-aos="flip-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true" class="aos-init">
+                        <a href="/implant">
+                            <div class="imgbox ">
+                                <img src="/static/css/img/implant.png" alt="임플란트">
+                                <div class="text">
+                                    <p>임플란트</p>
+                                    <img src="/static/img/assets/line.png" alt="선">
+                                    <p>내 치아같은 1:1 임플란트</p>
                                 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="imgbox">
-                                    <img src="//cdn.gdajdental.gdaj/img/orthodontics.png" alt="치아교정" />
-                                    <div class="text ">
-                                        <p>치아교정</p>
-                                        <img src="///cdn.gdajdental.gdaj/img/assets/line.png" alt="선" />
-                                        <p>수술없이도 아름다운 얼굴라인</p>
-                                    </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100" data-aos-easing="ease-in-out" data-aos-once="true" class="aos-init">
+                        <a href="/align">
+                            <div class="imgbox">
+                                <img src="/static/css/img/orthodontics.png" alt="치아교정">
+                                <div class="text ">
+                                    <p>치아교정</p>
+                                    <img src="/static/img/assets/line.png" alt="선">
+                                    <p>수술없이도 아름다운 얼굴라인</p>
                                 </div>
-                            </a>
-                        </li>
-                        <!-- 20211102 텍스트 수정 시작 -->
-                        <li>
-                            <a href="#">
-                                <div class="imgbox">
-                                    <img src="//cdn.gdajdental.gdaj/img/aesthetic.png" alt="심미치료" />
-                                    <div class="text ">
-                                        <p>심미치료</p>
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/line.png" alt="선" />
-                                        <p>1일 3회 집중시술! 이제 하루면 충분합니다.</p>
-                                    </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!-- 20211102 텍스트 수정 시작 -->
+                    <li data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-once="true" class="aos-init">
+                        <a href="/beauty">
+                            <div class="imgbox">
+                                <img src="/static/css/img/aesthetic.png" alt="심미치료">
+                                <div class="text ">
+                                    <p>심미치료</p>
+                                    <img src="/static/img/assets/line.png" alt="선">
+                                    <p>1일 3회 집중시술! 이제 하루면 충분합니다.</p>
                                 </div>
-                            </a>
-                        </li>
-                        <!-- 20211102 수정 끝 -->
-                    </ul>
+                            </div>
+                        </a>
+                    </li>
+                    <!-- 20211102 수정 끝 -->
+                </ul>
+            </div>
+        </div>
+        <div class="page" id="exam">
+            <div class="bg">
+                <div class="text">
+                    <!-- 20211102 수정 시작 -->
+                    <p data-aos-once="true" data-aos="zoom-in" class="aos-init">최첨단 장비 <span class="bold">3D</span>스캐너</p>
+                    <!-- 20211102 수정 끝 -->
+                    <p data-aos-once="true" data-aos="zoom-in" data-aos-delay="200" class="aos-init">광덕안정 치과 구강검진</p>
+                    <a href="/branch/isu#equipments2" data-aos-once="true" data-aos="zoom-in" data-aos-delay="400" class="aos-init">
+                        <span>자세히보기</span>
+                    </a>
                 </div>
             </div>
-            <div class="page" id="exam">
-                <div class="bg">
-                    <div class="text">
-                        <!-- 20211102 수정 시작 -->
-                        <p>최첨단 장비 <span class="bold">3D</span>스캐너</p>
-                        <!-- 20211102 수정 끝 -->
-                        <p>광덕안정 치과 구강검진</p>
-                        <a href="#">
-                            <span>자세히보기</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="center">
+            <div class="center">
+                <table>
+                    <tbody><tr>
+                        <td data-aos-once="true" data-aos="fade" class="aos-init">
+                            <a href="/implant">
+                                <p>임플란트</p>
+                                <img src="/static/img/assets/go_ico1.png" alt="치과 아이콘1">
+                            </a>
+                        </td>
+                        <td data-aos-once="true" data-aos="fade" data-aos-delay="100" class="aos-init">
+                            <a href="/align">
+                                <p>치아교정</p>
+                                <img src="/static/img/assets/go_ico2.png" alt="치과 아이콘2">
+                            </a>
+                        </td>
+                        <!-- 20211119 수정 시작(텍스트) -->
+                        <td data-aos-once="true" data-aos="fade" data-aos-delay="200" class="aos-init">
+                            <a href="/beauty">
+                                <p>치아미백</p>
+                                <img src="/static/img/assets/go_ico3.png" alt="치과 아이콘3">
+                            </a>
+                        </td>
+                        <!-- 20211231 수정 시작  -->
+                        <td data-aos-once="true" data-aos="fade" data-aos-delay="300" class="aos-init">
+                            <a href="/general/type/">
+                                <p>충치치료</p>
+                                <img src="/static/img/assets/go_ico4.png" alt="치과 아이콘4">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-aos-once="true" data-aos="fade" class="aos-init">
+                            <a href="/general/type/#scaling">
+                                <p>스케일링</p>
+                                <img src="/static/img/assets/go_ico5.png" alt="치과 아이콘5">
+                            </a>
+                        </td>
+                        <td data-aos-once="true" data-aos="fade" data-aos-delay="100" class="aos-init">
+                            <a href="/general/type/#dentures">
+                                <p>틀니</p>
+                                <img src="/static/img/assets/go_ico6.png" alt="치과 아이콘6">
+                            </a>
+                        </td>
+                        <td data-aos-once="true" data-aos="fade" data-aos-delay="200" class="aos-init">
+                            <a href="/general/type/#preventive">
+                                <p>예방치료</p>
+                                <img src="/static/img/assets/go_ico7.png" alt="치과 아이콘7">
+                            </a>
+                        </td>
+                        <!-- 20211119 수정 끝 -->
+                        <td data-aos-once="true" data-aos="fade" data-aos-delay="300" class="aos-init">
+                            <a href="/general/type/#wisdom">
+                                <p>사랑니 발치</p>
+                                <img src="/static/img/assets/go_ico8.png" alt="치과 아이콘8">
+                            </a>
+                        </td>
+                        <!-- 20211231 수정 끝  -->
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div class="page" id="notice">
+            <div class="center">
+                <div class="table aos-init" data-aos="fade-up" data-aos-once="true" data-aos-easing="ease-in-out">
+                    <h1>공지사항</h1>
+                    <!-- 20211231 수정 시작  -->
+                    <a href="/notice/">
+                        <img src="/static/img/assets/more.png" alt="플러스 아이콘">
+                    </a>
+                    <!-- 20211231 수정 끝  -->
                     <table>
-                        <tr>
-                            <td>
-                                <a href="#">
-                                    <p>임플란트</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico1.png" alt="치과 아이콘1" />
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <p>치아교정</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico2.png" alt="치과 아이콘2" />
-                                </a>
-                            </td>
-                            <!-- 20211119 수정 시작(텍스트) -->
-                            <td>
-                                <a href="#">
-                                    <p>치아미백</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico3.png" alt="치과 아이콘3" />
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <p>충치치료</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico4.png" alt="치과 아이콘4" />
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">
-                                    <p>스케일링</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico5.png" alt="치과 아이콘5" />
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <p>틀니</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico6.png" alt="치과 아이콘6" />
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <p>예방치료</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico7.png" alt="치과 아이콘7" />
-                                </a>
-                            </td>
-                            <!-- 20211119 수정 끝 -->
-                            <td>
-                                <a href="#">
-                                    <p>사랑니 발치</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/go_ico8.png" alt="치과 아이콘8" />
-                                </a>
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr class="index_notice__row">
+                                <td>
+                                    <span class="index_notice__category">이벤트</span>
+                                    <a href="/notice/7" class="index_notice__title">광덕안정치과 오픈 1주년 기념 이벤트</a>
+                                </td>
+                                <td class="index_notice__date">2022.02.03</td>
+                            </tr>
+                            <tr class="index_notice__row">
+                                <td>
+                                    <span class="index_notice__category">이벤트</span>
+                                    <a href="/notice/4" class="index_notice__title">광덕안정치과 원데이 미백 프로그램 이벤트</a>
+                                </td>
+                                <td class="index_notice__date">2021.12.31</td>
+                            </tr>
+                            <tr class="index_notice__row">
+                                <td>
+                                    <span class="index_notice__category">이벤트</span>
+                                    <a href="/notice/6" class="index_notice__title">광덕안정치과 수능&amp;겨울방학 기념 치아교정 이벤트</a>
+                                </td>
+                                <td class="index_notice__date">2021.11.15</td>
+                            </tr>
+                            <tr class="index_notice__row">
+                                <td>
+                                    <span class="index_notice__category">이벤트</span>
+                                    <a href="/notice/1" class="index_notice__title">광덕안정치과 여름이벤트 안내</a>
+                                </td>
+                                <td class="index_notice__date">2021.06.25</td>
+                            </tr>
+                            <tr class="index_notice__row">
+                                <td>
+                                    <span class="index_notice__category">이벤트</span>
+                                    <a href="/notice/5" class="index_notice__title">광덕안정치과 봄맞이 이벤트 안내</a>
+                                </td>
+                                <td class="index_notice__date">2021.04.07</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="page" id="notice">
-                <div class="center">
-                    <div class="table">
-                        <h1>공지사항</h1>
-                        <a href="#">
-                            <img src="//cdn.gdajdental.gdaj/img/assets/more.png" alt="플러스 아이콘" />
-                        </a>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <!-- <th>[공지]</th> -->
-                                    <td>
-                                        <span>[공지]</span>
-                                        <a href="#">전지점) 2021년 10월 휴진 &정상진료 일정입니다.</a>
-                                    </td>
-                                    <td>2021.10.30</td>
-                                </tr>
-                                <tr>
-                                    <!-- <th>[공지]</th> -->
-                                    <td>
-                                        <span>[공지]</span>
-                                        <a href="#">전지점) 2021년 10월 휴진 &정상진료 일정입니다. </a>
-                                    </td>
-                                    <td>2021.10.30</td>
-                                </tr>
-                                <tr>
-                                    <!-- <th>[공지]</th> -->
-                                    <td>
-                                        <span>[공지]</span>
-                                        <a href="#">전지점) 2021년 10월 휴진 &정상진료 일정입니다. </a>
-                                    </td>
-                                    <td>2021.10.30</td>
-                                </tr>
-                                <tr>
-                                    <!-- <th>[이수점]</th> -->
-                                    <td>
-                                        <span>[이수점]</span>
-                                        <a href="#">카카오채널 오픈 “광덕안정치과의원 서울 이수점"</a>
-                                    </td>
-                                    <td>2021.10.30</td>
-                                </tr>
-                                <tr>
-                                    <!-- <th>[서울대 입구점]</th> -->
-                                    <td>
-                                        <span>[서울대 입구점]</span>
-                                        <a href="#">전지점) 2021년 10월 휴진 &정상진료 일정입니다. </a>
-                                    </td>
-                                    <td>2021.10.30</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Slider main container -->
-                    <div class="swiper" id="branch">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <div class="swiper-slide">
-                                <div class="text">
-                                    <p>광덕안정치과 이수점</p>
-                                    <a href="tel:02-6339-2875">
-                                        02.6339.2875
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘" />
-                                    </a>
-                                    <table class="brach">
-                                        <tr>
-                                            <td>월·수·금</td>
-                                            <td>AM 09:30 ~ PM 06:30</td>
-                                            <td>토요일</td>
-                                            <td>AM 09:30 ~ PM 02:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>화·목</td>
-                                            <td>AM 09:30 ~ PM 09:00</td>
-                                            <td>점심시간</td>
-                                            <td>PM 01:00 ~ PM 02:00</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <img src='//cdn.gdajdental.gdaj/img/buildingbg.png' alt="빌딩 배경" />
+                <!-- Slider main container -->
+                <div class="swiper aos-init swiper-container-initialized swiper-container-horizontal" id="branch" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-aos-easing="ease-in-out">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper" style="transform: translate3d(-546px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2" style="width: 546px;">
+                            <div class="text">
+                                <p>광덕안정치과 이수점 </p>
+                                <a href="tel:02-6339-2875">
+                                    02.6339.2875
+                                    <img src="/static/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘">
+                                </a>
+                                <table class="brach">
+                                    <tbody><tr>
+                                        <td>월·수·금</td>
+                                        <td>AM 09:30 ~ PM 06:30</td>
+                                        <td>토요일</td>
+                                        <td>AM 09:30 ~ PM 02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>화·목</td>
+                                        <td>AM 09:30 ~ PM 09:00</td>
+                                        <td>점심시간</td>
+                                        <td>PM 01:00 ~ PM 02:00</td>
+                                    </tr>
+                                </tbody></table>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="text">
-                                    <p>광덕안정치과 이수점 2</p>
-                                    <a href="tel:02-6339-2875">
-                                        02.6339.2875
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘" />
-                                    </a>
-                                    <table class="brach">
-                                        <tr>
-                                            <td>월·수·금</td>
-                                            <td>AM 09:30 ~ PM 06:30</td>
-                                            <td>토요일</td>
-                                            <td>AM 09:30 ~ PM 02:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>화·목</td>
-                                            <td>AM 09:30 ~ PM 09:00</td>
-                                            <td>점심시간</td>
-                                            <td>PM 01:00 ~ PM 02:00</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <img src='//cdn.gdajdental.gdaj/img/buildingbg.png' alt="빌딩 배경" />
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="text">
-                                    <p>광덕안정치과 이수점 3</p>
-                                    <a href="tel:02-6339-2875">
-                                        02.6339.2875
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘" />
-                                    </a>
-                                    <table class="brach">
-                                        <tr>
-                                            <td>월·수·금</td>
-                                            <td>AM 09:30 ~ PM 06:30</td>
-                                            <td>토요일</td>
-                                            <td>AM 09:30 ~ PM 02:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>화·목</td>
-                                            <td>AM 09:30 ~ PM 09:00</td>
-                                            <td>점심시간</td>
-                                            <td>PM 01:00 ~ PM 02:00</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <img src='//cdn.gdajdental.gdaj/img/buildingbg.png' alt="빌딩 배경" />
-                            </div>
+                            <img src="/static/css/img/buildingbg.png" alt="빌딩 배경">
                         </div>
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-next">
-                            <img src="//cdn.gdajdental.gdaj/img/assets/nextarrow_w.png" alt="다음버튼" />
+                        <!-- Slides -->
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 546px;">
+                            <div class="text">
+                                <p>광덕안정치과 이수점</p>
+                                <a href="tel:02-6339-2875">
+                                    02.6339.2875
+                                    <img src="/static/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘">
+                                </a>
+                                <table class="brach">
+                                    <tbody><tr>
+                                        <td>월·수·금</td>
+                                        <td>AM 09:30 ~ PM 06:30</td>
+                                        <td>토요일</td>
+                                        <td>AM 09:30 ~ PM 02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>화·목</td>
+                                        <td>AM 09:30 ~ PM 09:00</td>
+                                        <td>점심시간</td>
+                                        <td>PM 01:00 ~ PM 02:00</td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <img src="/static/css/img/buildingbg.png" alt="빌딩 배경">
                         </div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 546px;">
+                            <div class="text">
+                                <p>광덕안정치과 이수점 </p>
+                                <a href="tel:02-6339-2875">
+                                    02.6339.2875
+                                    <img src="/static/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘">
+                                </a>
+                                <table class="brach">
+                                    <tbody><tr>
+                                        <td>월·수·금</td>
+                                        <td>AM 09:30 ~ PM 06:30</td>
+                                        <td>토요일</td>
+                                        <td>AM 09:30 ~ PM 02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>화·목</td>
+                                        <td>AM 09:30 ~ PM 09:00</td>
+                                        <td>점심시간</td>
+                                        <td>PM 01:00 ~ PM 02:00</td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <img src="/static/css/img/buildingbg.png" alt="빌딩 배경">
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2" style="width: 546px;">
+                            <div class="text">
+                                <p>광덕안정치과 이수점 </p>
+                                <a href="tel:02-6339-2875">
+                                    02.6339.2875
+                                    <img src="/static/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘">
+                                </a>
+                                <table class="brach">
+                                    <tbody><tr>
+                                        <td>월·수·금</td>
+                                        <td>AM 09:30 ~ PM 06:30</td>
+                                        <td>토요일</td>
+                                        <td>AM 09:30 ~ PM 02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>화·목</td>
+                                        <td>AM 09:30 ~ PM 09:00</td>
+                                        <td>점심시간</td>
+                                        <td>PM 01:00 ~ PM 02:00</td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <img src="/static/css/img/buildingbg.png" alt="빌딩 배경">
+                        </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 546px;">
+                            <div class="text">
+                                <p>광덕안정치과 이수점</p>
+                                <a href="tel:02-6339-2875">
+                                    02.6339.2875
+                                    <img src="/static/img/assets/call.png" alt="광덕안정치과 이수점 전화 아이콘">
+                                </a>
+                                <table class="brach">
+                                    <tbody><tr>
+                                        <td>월·수·금</td>
+                                        <td>AM 09:30 ~ PM 06:30</td>
+                                        <td>토요일</td>
+                                        <td>AM 09:30 ~ PM 02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>화·목</td>
+                                        <td>AM 09:30 ~ PM 09:00</td>
+                                        <td>점심시간</td>
+                                        <td>PM 01:00 ~ PM 02:00</td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <img src="/static/css/img/buildingbg.png" alt="빌딩 배경">
+                        </div></div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
+                        <img src="/static/img/assets/nextarrow_w.png" alt="다음버튼">
                     </div>
-                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
             </div>
+        </div>
     </div>
     <div class="page" id="covidimg">
         <div class="center">
-            <img src="//cdn.gdajdental.gdaj/img/banner2.png" alt="광덕안정치과 코로나 19 방역" />
+            <img src="/static/css/img/banner2.png" alt="광덕안정치과 코로나 19 방역" />
         </div>
     </div>
 {% endblock body_info %}
+
+{% block main_script %}
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/notice/fetch",
+            method: 'get',
+            success: function (result) {
+                result.forEach((elem, idx) => {
+                    document.querySelectorAll('.index_notice__category')[idx].innerText = elem.category_name
+                    document.querySelectorAll('.index_notice__title')[idx].innerText = elem.title; 
+                    document.querySelectorAll('.index_notice__title')[idx].href=`/notice/${elem.id}`
+                    document.querySelectorAll('.index_notice__date')[idx].innerText = elem.publish_date.replaceAll('-','.')
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            },
+        })
+    })
+</script>
+<script>
+        AOS.init();
+        $(document).ready(function () {
+            // main menu 대표, 지점 관련 jquery
+            $("#main_top_category").mouseenter(function () {
+                $('#main_top_category_sub').css({
+                    'display': 'block'
+                });
+                return false;
+            });
+            $('#main_top_category_sub').mouseleave(function () {
+                $('#main_top_category_sub').fadeOut();
+                return false;
+            });
+            $(".login_btn_pop").click(function () {
+                $('#login').show();
+                return false;
+            });
+        });
+</script>
+{% endblock main_script %}

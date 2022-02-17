@@ -17,15 +17,15 @@
             <div class="pagetop pagetop2">
                 <div class="page_hgroup com">
                     <h1>치과소개</h1>
-                    <ul class="catewrap">
-                        <li class="category category400">
-                            <a href="#">치과소개</a>
+                    <ul class="catewrap" id="go">
+                        <li class="category  category400 ">
+                            <a href="/intro">치과소개</a>
                         </li>
-                        <li class="category category400">
-                            <a href="#">CI소개</a>
+                        <li class="category category400 ">
+                            <a href="/intro/ci">CI소개</a>
                         </li>
                         <li class="category category400 active">
-                            <a href="#">지점안내</a>
+                            <a href="/intro/branch">지점안내</a>
                         </li>
                     </ul>
                 </div>
@@ -44,16 +44,19 @@
                     </div>
                     <div class="s_b_c_branch">
                         <ul>
-                            <li><a href="#">이수점</a></li>
-                            <li><a href="#">강남점</a></li>
-                            <li><a href="#">동대문점</a></li>
-                            <li><a href="#">서울대 입구점</a></li>
+                            <li><a href="/branch/isu">이수점</a></li>
+                            <li><a href="/branch/gn">강남점</a></li>
+                            <li><a href="/brnach/ddm">동대문점</a></li>
+                            <li><a href="/brnach/snu">서울대 입구점</a></li>
                         </ul>
                     </div>
                     <div class="s_b_c_map">
-                        <img src="//cdn.gdajdental.gdaj/img/sub/branch/sub_branch_isu.png" />
+                        <img src="/static/img/sub/branch/sub_branch_isu.png" />
                     </div>
                 </div>
             </div>
         </div>
 {% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

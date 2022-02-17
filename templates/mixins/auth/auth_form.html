@@ -1,0 +1,24 @@
+<form method="POST" class="w-full" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if form.non_field_erros %}
+        {% for error in form.non_field_errors %}
+            <span>{{error}}</span>
+        {% endfor %}
+    {% endif %}
+
+    {% for field in form %}
+        <div>
+            {{field}}
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% comment %} {% include 'mixins/auth/form_input.html' with field=field %} {% endcomment %}
+    {% endfor %}
+
+    <button>{{cta}}</button>
+
+</form>

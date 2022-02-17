@@ -30,7 +30,7 @@
         <meta name="copyright" content="GDAJ DENTAL CLINIC" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="광덕안정치과의원" />
-        <meta property="og:image" content="//cdn.miranda.gdaj/dentalmain/img/assets/logo.png" />
+        <meta property="og:image" content="{% static "img/assets/logo.png" %}" />
         <meta property="og:url" content="http://gdajdental.co.kr/" />
         <meta property="og:locale" content="ko_KR" />
         <meta property="og:image:width" content="287" />
@@ -77,6 +77,31 @@
             {% endblock body_info %}
             {% include "partials/footer.html" %}
         </div>
+
+        <script src="/static/js/common.js"></script>
+        <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+
+        <script type="text/javascript">
+            if(!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "1c32a26bb9f720";
+            if(window.wcs) {
+            wcs_do();
+            }
+        </script>
+        <div>
+            <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s ease 0s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+                <div class="grecaptcha-logo">
+                    <iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LedxqgdAAAAADpJQx7JfzW06Fk8VoBE_xYps1PE&amp;co=aHR0cHM6Ly9nZGFqZGVudGFsLmNvLmtyOjQ0Mw..&amp;hl=ko&amp;v=BycHQdSIhzR_1EcOLw2mOzYQ&amp;size=invisible&amp;cb=61xzn21b21" width="256" height="60" role="presentation" name="a-pcmsmfw2t9yg" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+                </div>
+                <div class="grecaptcha-error"></div>
+                <textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+            </div>
+            <iframe style="display: none;"></iframe>
+        </div>
+        {% block main_script %}
+        {% endblock main_script %}
+        {% block sub_script %}
+        {% endblock sub_script %}
     </body>    
     <script>
         function closeItemscoutWebExtension() {

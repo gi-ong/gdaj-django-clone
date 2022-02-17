@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_title %}임플란트 종류{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 임플란트" />
@@ -9,10 +10,16 @@
     <meta property="og:description" content="광덕안정치과의원 임플란트 종류" />
     <meta name="twitter:title" content="광덕안정치과의원 임플란트" />
     <meta name="twitter:description" content="광덕안정치과의원  임플란트 종류 페이지" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub_implant.css" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/swiper.min.css" />
+    <link rel="stylesheet" href="{% static "css/sub_implant.css" %}" />
+    <link rel="stylesheet" href="{% static "css/swiper.min.css" %}" />
+    <script src="{% static "lib/swiper.min.js"%}"></script>
     {% include "mixins/sub_style.html" %}
+    <style id="__web-inspector-hide-shortcut-style__">
+        .__web-inspector-hide-shortcut__, .__web-inspector-hide-shortcut__ *, .__web-inspector-hidebefore-shortcut__::before, .__web-inspector-hideafter-shortcut__::after
+        {
+            visibility: hidden !important;
+        }
+    </style>
 {% endblock head_info %}
 
 {% block body_info %}
@@ -21,11 +28,11 @@
                 <div class="page_hgroup com">
                     <h1>임플란트</h1>
                     <ul class="catewrap">
-                        <li class="category category600 ">
-                            <a href="#">광덕안정 임플란트 노하우</a>
+                        <li class="category category600">
+                            <a href="/implant">광덕안정 임플란트 노하우</a>
                         </li>
                         <li class="category category600 active">
-                            <a href="#">임플란트 종류</a>
+                            <a href="">임플란트 종류</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +42,7 @@
             <div class="oc implant_section">
                 <div class="center">
                     <div class="implant_section_2">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/implant/implant_icon.png"
+                        <div class="section_icon"><img src="/static/img/sub/implant/implant_icon.png"
                                 alt="아이콘" /></div>
                         <p class="implant_section_2_title1">진단부터 식립까지 단 하루에!</p>
                         <p class="implant_section_2_title2">원데이 임플란트</p>
@@ -54,7 +61,7 @@
                             </li>
                         </ul>
                         <div class="implant_section_2_image1"><img
-                                src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_2_1.png"
+                                src="/static/img/sub/implant/implant_section_2_1.png"
                                 alt="원데이 임플란트 STEP" /></div>
                         <div class="display_none">
                             STEP 01
@@ -66,7 +73,7 @@
                             당일 발치 후 임플란트 수술
                         </div>
                         <div class="implant_section_2_image2"><img
-                                src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_2_2.png"
+                                src="/static/img/sub/implant/implant_section_2_2.png"
                                 alt="원데이 임플란트 당일 발치 및 임플란트 1,2차 수술" /></div>
                     </div>
                 </div>
@@ -74,7 +81,7 @@
             <div class="oc implant_section implant_section_bg_gray">
                 <div class="center">
                     <div class="implant_section_1">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/implant/implant_icon.png"
+                        <div class="section_icon"><img src="/static/img/sub/implant/implant_icon.png"
                                 alt="아이콘" /></div>
                         <p class="implant_section_1_title1">정확하고 안전하다</p>
                         <p class="implant_section_1_title2">3D 디지털 네비게이션 임플란트</p>
@@ -102,7 +109,7 @@
                                 <div class="implant_section_1_table_cell implant_section_1_table_cell1">일반 임플란트</div>
                                 <!-- 20211123 수정 시작 -->
                                 <div class="implant_section_1_table_cell implant_section_1_table_cell2 implant_section_1_table_cellvs">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/vs2.png" alt="vs">
+                                    <img src="/static/img/assets/vs2.png" alt="vs">
                                 </div>
                                 <div class="implant_section_1_table_cell implant_section_1_table_cell3">네비게이션 임플란트</div>
                             </div>
@@ -131,13 +138,13 @@
                             <div class="implant_section_1_table_row i_s_1_t_b">
                                 <div class="implant_section_1_table_cell implant_section_1_table_cell1">
                                     <p>잇몸 절개 시술</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_1_1.jpg"
+                                    <img src="/static/img/sub/implant/implant_section_1_1.jpeg"
                                         alt="잇몸 절개 시술 사진" />
                                 </div>
                                 <div class="implant_section_1_table_cell implant_section_1_table_cell2">시술방법</div>
                                 <div class="implant_section_1_table_cell implant_section_1_table_cell3">
                                     <p>최소 절개</p>
-                                    <img src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_1_2.jpg"
+                                    <img src="/static/img/sub/implant/implant_section_1_2.jpeg"
                                         alt="잇몸 절개 시술 사진" />
                                 </div>
                             </div>
@@ -148,7 +155,7 @@
             <div class="oc implant_section">
                 <div class="center">
                     <div class="implant_section_3">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/implant/implant_icon.png"
+                        <div class="section_icon"><img src="/static/img/sub/implant/implant_icon.png"
                                 alt="아이콘" /></div>
                         <p class="implant_section_3_title1">뼈이식 치료, 오랜 기다림 없이 바로</p>
                         <p class="implant_section_3_title2">뼈이식 임플란트</p>
@@ -170,7 +177,7 @@
                         <!-- 20211102 텍스트 수정 끝 -->
                         <table class="implant_section_3_table">
                             <tr>
-                                <td><img src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_3.jpg" alt="" />
+                                <td><img src="/static/img/sub/implant/implant_section_3.jpeg" alt="" />
                                 </td>
                                 <td class="implant_section_3_table_txt">
                                     <p class="implant_section_3_table_txt1">성공적인 치료 결과를 위해</p>
@@ -194,35 +201,54 @@
                         <p class="implant_section_4_title1">BEFORE & AFTER</p>
                         <p class="implant_section_4_title2">광덕안정치과의 튼튼하고 체계적인 임플란트 식립 사례</p>
                         <div class="implant_swiper">
+                            <div class="swiper mySwiper swiper-container-initialized swiper-container-horizontal">
+                                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1200px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2" style="width: 1200px;"><img src="/static/img/sub/implant/implant_section_4_3.jpeg" alt="CASE 03 : 발치 즉시 임플란트 식립 사례 (원데이 임플란트)"></div>
+                                    <!-- 20220104 수정 시작 -->
+                                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1200px;"><img src="/static/img/sub/implant/implant_section_4_1.jpeg" alt="CASE 01 : 발치 즉시 임플란트 식립 사례 (원데이 임플란트)"></div>
+                                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 1200px;"><img src="/static/img/sub/implant/implant_section_4_2.jpeg" alt="CASE 02 : 발치 즉시 임플란트 식립 사례 (원데이 임플란트)"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2" style="width: 1200px;"><img src="/static/img/sub/implant/implant_section_4_3.jpeg" alt="CASE 03 : 발치 즉시 임플란트 식립 사례 (원데이 임플란트)"></div>
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1200px;"><img src="/static/img/sub/implant/implant_section_4_1.jpeg" alt="CASE 01 : 발치 즉시 임플란트 식립 사례 (원데이 임플란트)"></div></div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                            <div class="implant_swiper_prev" tabindex="0" role="button" aria-label="Previous slide"><img src="/static/img/sub/braces/sub_braces_section_7_prev.jpeg" alt="이전">
+                            </div>
+                            <div class="implant_swiper_next" tabindex="0" role="button" aria-label="Next slide"><img src="/static/img/sub/braces/sub_braces_section_7_next.jpeg" alt="다음">
+                            </div>
+                            <!-- 20220104 수정 끝 -->
+                        </div>
+                        {% comment %} <div class="implant_swiper">
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_4_1.jpg"
+                                            src="/static/img/sub/implant/implant_section_4_1.jpeg"
                                             alt="" /></div>
                                     <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_4_2.jpg"
+                                            src="/static/img/sub/implant/implant_section_4_2.jpeg"
                                             alt="" /></div>
                                     <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/implant/implant_section_4_3.jpg"
+                                            src="/static/img/sub/implant/implant_section_4_3.jpeg"
                                             alt="" /></div>
                                 </div>
                             </div>
                             <div class="implant_swiper_prev"><img
-                                    src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_prev.jpg" alt="이전" />
+                                    src="/static/img/sub/braces/sub_braces_section_7_prev.jpeg" alt="이전" />
                             </div>
                             <div class="implant_swiper_next"><img
-                                    src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_next.jpg" alt="다음" />
+                                    src="/static/img/sub/braces/sub_braces_section_7_next.jpeg" alt="다음" />
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                         <!-- 로그인 전 검은색 박스-->
                         <div class="beflog">
                             <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
                             <div class="iconwrap">
-                                <a href="#" class="kakao">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                <a href="/auth/kakao/login/?method=oauth2&amp;next=/implant/type#bf" class="kakao">
+                                    <img src="/static/img/assets/kakao_af.png" alt="카카오 아이콘">
                                 </a>
-                                <a href="#" class="naver">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/naver.png" alt="네이버 아이콘">
+                                <a href="/auth/naver/login/?method=oauth2&amp;next=/implant/type#bf" class="naver" style="margin-right:10px;">
+                                    <img src="/static/img/assets/naver.png" alt="네이버 아이콘">
+                                </a>
+                                <a href="javascript:;" class="login_btn_pop" onclick="document.querySelectorAll('.login_chunk_buttons a').forEach(i=>i.href+='#bf')
+                                    document.querySelector('.popup_login__button').dataset.next='#bf';">
+                                    <img src="/static/img/assets/login.png" alt="로그인 아이콘">
                                 </a>
                             </div>
                         </div>
@@ -240,3 +266,6 @@
             });
         </script>
 {% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

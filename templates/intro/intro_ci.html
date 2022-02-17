@@ -19,14 +19,14 @@
                 <div class="page_hgroup com">
                     <h1>치과소개</h1>
                     <ul class="catewrap">
-                        <li class="category  category400  ">
-                            <a href="#">치과소개</a>
+                        <li class="category category400">
+                            <a href="/intro">치과소개</a>
                         </li>
                         <li class="category category400 active">
-                            <a href="#">CI소개</a>
+                            <a href="/intro/ci">CI소개</a>
                         </li>
-                        <li class="category category400 ">
-                            <a href="#">지점소개</a>
+                        <li class="category category400">
+                            <a href="/intro/branch">지점안내</a>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="ci_wrap">
                 <div class="ci_center">
-                    <img src="//cdn.gdajdental.gdaj/img/assets/cilogo.png" alt="광덕안정치과의원 로고 " />
+                    <img src="/static/img/assets/cilogo.png" alt="광덕안정치과의원 로고 " />
                     <p>
                         광덕안정 시그니처는 방패와 왕관을 결합한 엠블럼에 광덕안정의 이니셜 G, A와 <br />
                         법무법인을 뜻하는 저울, 치과를 뜻하는 치아 이미지를 심플 배치하였으며, <br />
@@ -53,13 +53,13 @@
                         광덕안정을 통해 고객들이 체험할 수 있는 분야를 인지시킴과 동시에 프리미엄 이미지를 강조한다. <br /> <br />
                     </p>
                     <div class="btwrap">
-                        <a href="#">
+                        <a href="https://cdn.gdaj.net/dentalweb/assets/gdaj_dental_logo2.zip">
                             <span>AI 파일 다운로드</span>
-                            <img src="//cdn.gdajdental.gdaj/img/assets/download.png" alt="다운로드 " />
+                            <img src="/static/img/assets/download.png" alt="다운로드 " />
                         </a>
-                        <a href="#">
+                        <a href="https://cdn.gdaj.net/dentalweb/assets/gdaj_dental_logo1.zip">
                             <span>PNG 파일 다운로드</span>
-                            <img src="//cdn.gdajdental.gdaj/img/assets/download.png" alt="다운로드 " />
+                            <img src="/static/img/assets/download.png" alt="다운로드 " />
                         </a>
                     </div>
                 </div>
@@ -72,10 +72,10 @@
                         이 외에 임의로 변형 또는 재조합 사용은 불가합니다.
                     </p>
                     <div class="picwrap">
-                        <img src="//cdn.gdajdental.gdaj/img/assets/cilogo2.png" alt="광덕안정치과의원 로고 " />
+                        <img src="/static/img/assets/cilogo2.png" alt="광덕안정치과의원 로고 " />
                         <div class="left">
-                            <img class="fir" src="//cdn.gdajdental.gdaj/img/assets/cilogo3.png" alt="광덕안정치과의원 로고 " />
-                            <img class="sec" src="//cdn.gdajdental.gdaj/img/assets/cilogo4.png" alt="광덕안정치과의원 로고 " />
+                            <img class="fir" src="/static/img/assets/cilogo3.png" alt="광덕안정치과의원 로고 " />
+                            <img class="sec" src="/static/img/assets/cilogo4.png" alt="광덕안정치과의원 로고 " />
                         </div>
                     </div>
                 </div>
@@ -84,13 +84,13 @@
                         <p class="btit">Font Type</p>
                         <!-- 20211206 수정 시작 -->
                         <p class="des">
-                            (한글) IBM Plex Sans Bold 
-                            &nbsp <span> | </span> &nbsp
-                            (영문) IBM Plex Sans Semi Bold <br />
-
-                            자간 : -25 
-                            &nbsp <span> | </span> &nbsp
-                            장평 : 세로 100%, 가로 96%
+                            (한글) IBM Plex Sans Bold &nbsp; 
+                            <span> | </span> 
+                            &nbsp;(영문) IBM Plex Sans Semi Bold 
+                            <br />
+                            자간 : -25 &nbsp; 
+                            <span> | </span> 
+                            &nbsp; 장평 : 세로 100%, 가로 96%
                         </p>
                         <!-- 20211206 수정 끝 -->
                     </div>
@@ -99,7 +99,7 @@
                         <ul>
                             <li>
                                 <div class="img">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/pricol.png" alt="기본 색" />
+                                    <img src="/static/img/assets/pricol.png" alt="기본 색" />
                                 </div>
                                 <div class="twrap">
                                     <p class="ttit">Primary Color</p>
@@ -131,7 +131,7 @@
                             </li>
                             <li>
                                 <div class="img">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/seccol.png" alt=" 두번째 색" />
+                                    <img src="/static/img/assets/seccol.png" alt=" 두번째 색" />
                                 </div>
                                 <div class="twrap">
                                     <p class="ttit">Secondary Color</p>
@@ -163,7 +163,7 @@
                             </li>
                             <li>
                                 <div class="img">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/seccol2.png" alt=" 두번째 색" />
+                                    <img src="/static/img/assets/seccol2.png" alt=" 두번째 색" />
                                 </div>
                                 <div class="twrap">
                                     <p class="ttit">Secondary Color</p>
@@ -206,3 +206,6 @@
             </div>
         </div>
 {% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

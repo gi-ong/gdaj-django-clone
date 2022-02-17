@@ -1,3 +1,4 @@
+
 :root {
     --main-font-color: #000000;
     --second-font-color: #ffffff;
@@ -12,6 +13,63 @@
     --sec-point-color: #00aacf;
     --thr-point-color: #0f1d4a;
 
+    --bg-exam: url('img/banner.png' );
+    --bg-pagetop: url('img/subbg.png');
+    --bg-pagetop1: url('img/combg.png');
+    --bg-pagetop2: url('img/introbg.png');
+    --bg-pagetop3: url('img/impbg.png');
+    --bg-sub-branch: url('img/sub/branch/sub_branch_bg.jpg');
+    --bg-intro:url('img/introbg2.png');
+    --bg-laurel:url('img/laurel.png');
+    --bg-check:url('img/cross.png');
+    --bg-pagetop-ort:url('img/ortbg.png');
+    --bg-gbg1:url('img/gbg1.png');
+    --bg-gbg2:url('img/gbg2.png');
+    --bg-gbg3:url('img/gbg3.png');
+    --bg-gbg4:url('img/gbg4.png');
+    --bg-ort-table:url('img/orttable.png');
+    --bg-bwbg:url('img/bwbg.png');
+    --bg-sub-branch-tel-icon:url('img/sub/branch/sub_map_tel_icon.png');
+    --bg-sub-branch-layer-doctor-ci:url('img/sub/branch/sub_doctor_ci.png');
+    --bg-sub-branch-layer-doctor-dq:url('img/sub/branch/sub_doctor_dq.png');
+    --bg-tbox:url('img/tbox.png');
+    --bg-age:url('img/agebg.png');
+    --bg-re:url('img/rebg.png');
+    --bg-sub-braces-list-icon:url('img/sub/braces/braces_list_icon.png');
+    --bg-dtail1:url('img/dtail1.png');
+    --bg-dtail2:url('img/dtail2.png');
+    --bg-dtail3:url('img/dtail3.png');
+    --bg-dtail4:url('img/dtail4.png');
+    --bg-rec:url('img/assets/imp_rec.png');
+    --bg-khow1:url('img/khow1.png');
+    --bg-khow2:url('img/khow2.png');
+    --bg-soi:url('img/soi.png');
+    --bg-cusb:url('img/cusb.png');
+    --bg-checkg:url('img/assets/checkg.png');
+    --bg-checkb:url('img/assets/checkb.png');
+    --bg-ex:url('img/exbg.png');
+    --bg-aes:url('img/aesbg.png');
+    --bg-sub-implant-3-bg:url('img/implant_section_3_bg.jpeg');
+    --bg-af:url('img/afbg.jpg');
+    --bg-step1:url('img/step1.png');
+    --bg-sub-whitening-2-bg: url('img/sub/whitening/whitening_section_2_bg.jpg');
+    --bg-popupwrap:url('img/popupwrap.png');
+    --bg--gray-expand:url('img/assets/expand_more_gray.png');
+    --bg-expand-b:url('img/assets/expand_more_b.png');
+    --bg-pagetop-gnral:url('img/subbg.png');
+    --bg-gnrl-kh1:url('img/gnrl_kh1.png');
+    --bg-gnrl-kh2:url('img/gnrl_kh2.png');
+    --bg-gnrl-kh3:url('img/gnrl_kh3.png');
+    --bg-gnrl-kh4:url('img/gnrl_kh4.png');
+    --bg-nat-wrap:url('img/nat_wrap.png');
+    --bg-cavity-section2-stitle1:url('img/assets/cavity_section2_stitle1.png');
+    --bg-periodontal-sec3:url('img/periodontal_section_3.png');
+    --bg-wisdom-sec3-1:url('img/wisdomt_section_3_1.png');
+    --bg-wisdom-sec3-2:url('img/wisdomt_section_3_2.png');
+    --bg-wisdom-sec3-3:url('img/wisdomt_section_3_3.png');
+    --bg-wisdom-sec3-4:url('img/wisdomt_section_3_4.png');
+
+    /* 
     --bg-exam: url('{% static 'img/banner.png' %}');
     --bg-pagetop: url('{% static 'img/subbg.png'%}');
     --bg-pagetop1: url('{% static 'img/combg.png'%}');
@@ -66,5 +124,5 @@
     --bg-wisdom-sec3-1:url('{% static 'img/wisdomt_section_3_1.png'%}');
     --bg-wisdom-sec3-2:url('{% static 'img/wisdomt_section_3_2.png'%}');
     --bg-wisdom-sec3-3:url('{% static 'img/wisdomt_section_3_3.png'%}');
-    --bg-wisdom-sec3-4:url('{% static 'img/wisdomt_section_3_4.png'%}');
+    --bg-wisdom-sec3-4:url('{% static 'img/wisdomt_section_3_4.png'%}'); */
 }
