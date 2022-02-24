@@ -126,6 +126,7 @@ class SignUpView(mixins.LoggedOutOnlyView, FormView):
     template_name = "users/signup.html"
     form_class = forms.SignUpForm
     success_url = reverse_lazy("pages:home")
+    redirect_field_name = "next"
 
     def form_valid(self, form):
         form.save()
