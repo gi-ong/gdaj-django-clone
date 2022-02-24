@@ -1,6 +1,7 @@
 from django.db import models
 from core import models as core_models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.urls import reverse
 
 
 class AbstractItem(core_models.TimeStampedModel):
@@ -24,9 +25,59 @@ class AbstractItem(core_models.TimeStampedModel):
 #         verbose_name = "Care Type"
 
 
-class Post(core_models.TimeStampedModel):
+class NoticePhoto(core_models.TimeStampedModel):
 
-    # """Post Model Definition"""
+    """NoticePhoto Model Definition"""
+
+    caption = models.CharField(max_length=80)
+    file = models.ImageField(upload_to="n_photos")
+    notice = models.ForeignKey(
+        "NoticePost", related_name="notice_photos", on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.caption
+
+
+class NoticePost(core_models.TimeStampedModel):
+
+    """Post Model Definition"""
+
+    TYPE_EVENT = "이벤트"
+    TYPE_NOTICE = "공지"
+
+    TYPE_CHOICES = (
+        (TYPE_EVENT, "이벤트"),
+        (TYPE_NOTICE, "공지"),
+    )
+    title = models.CharField(max_length=80)
+    text = models.TextField()
+    host = models.ForeignKey(
+        "users.User", related_name="notice", on_delete=models.CASCADE
+    )
+    notice_type = models.CharField(choices=TYPE_CHOICES, max_length=20)
+    # care_type = models.ForeignKey(
+    #     "CareType", related_name="posts", on_delete=models.CASCADE, blank=True
+    # )
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("posts:notice_detail", kwargs={"pk": self.pk})
+
+    def get_photos(self):
+        try:
+            photos = self.notice_photos.all()
+            return photos
+        except ValueError:
+            return None
+
+
+class QnaPost(core_models.TimeStampedModel):
+
+    """Post Model Definition"""
+
     TYPE_GNRAL = "gnral"
     TYPE_IMP = "imp"
     TYPE_ALIGN = "align"
@@ -38,18 +89,25 @@ class Post(core_models.TimeStampedModel):
         (TYPE_ALIGN, "치아교정"),
         (TYPE_BEAUTY, "치아미백"),
     )
-
     title = models.CharField(max_length=80)
+    text = models.TextField()
     branch = models.ForeignKey(
-        "pages.Branch", related_name="posts", on_delete=models.CASCADE
+        "pages.Branch", related_name="qna", on_delete=models.CASCADE
     )
     care_type = models.CharField(choices=TYPE_CHOICES, max_length=20)
     name = models.CharField(max_length=50)
     phone = PhoneNumberField(region="KR")
-    text = models.TextField()
     email = models.EmailField(max_length=50, blank=True)
     password = models.CharField(max_length=50)
-
+    host = models.ForeignKey(
+        "users.User", related_name="qna", on_delete=models.CASCADE, blank=True
+    )
     # care_type = models.ForeignKey(
     #     "CareType", related_name="posts", on_delete=models.CASCADE, blank=True
     # )
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("posts:qna_detail", kwargs={"pk": self.pk})

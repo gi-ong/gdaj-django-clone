@@ -19,10 +19,10 @@
                     <h1>심미치료</h1>
                     <ul class="catewrap">
                         <li class="category category600 active">
-                            <a href="#">치아미백 노하우</a>
+                            <a href="/beauty">치아미백 노하우</a>
                         </li>
                         <li class="category category600">
-                            <a href="#">미백프로그램</a>
+                            <a href="/beauty/1day">미백프로그램</a>
                         </li>
                     </ul>
                 </div>
@@ -98,7 +98,7 @@
                     <div class="aflog">
                         <img src="//cdn.gdajdental.gdaj/img/aflog.png" alt="1일 3회 미백 집중 시술 변화 사진">
                     </div>
-                    <div class="beflog">
+                    <div class="beflog" style="{% if user.is_authenticated %}opacity:0; {% else %}opacity:1;{% endif %}">
                         <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
                         <div class="iconwrap">
                             <a href="#" class="kakao">

@@ -22,11 +22,11 @@
         </h1>
         <div class="text">
             <p>
-                <a href="#perinfo">개인정보처리방침</a>
-                <span>&nbsp | &nbsp</span>
-                <a href="#right">환자권리장전</a>
-                <span>&nbsp | &nbsp</span>
-                <a href="#nonpay">비급여수가</a>
+                <a class="willpop" target-id="perinfo" id="perinfo_bottom" href="javascript:void(0);">개인정보처리방침</a>
+                &nbsp; | &nbsp;
+                <a class="willpop" target-id="right" id="right_bottom" href="#right">환자권리장전</a>
+                &nbsp; | &nbsp;
+                <a class="willpop" target-id="nonpay" id="nonpay_bottom" href="#nonpay">비급여수가</a>
             </p>
             <p>서울특별시 서초구 동작대로 130, 3층(방배동) 광덕안정치과 &nbsp 대표전화 : 02.6339.2875 &nbsp 대표 : 정세현 &nbsp 사업자등록번호 :
                 257-11-01877</p>
@@ -132,16 +132,16 @@
                 
             </li>
             <li>
-                <a href="#">커뮤니티
+                <a href="/posts/notice">커뮤니티
                     </a><ol><a href="#">
-                        </a><li><a href="#"></a><a href="/notice/">공지사항</a></li>
-                        <li><a href="/notice/">이벤트</a></li>
+                        </a><li><a href="#"></a><a href="/posts/notice">공지사항</a></li>
+                        <li><a href="/posts/notice">이벤트</a></li>
                         <!-- 20211231 수정 끝  -->
                         <!-- 20220103 수정 시작 -->
-                        <li><a href="/beforeafter/">치료전후사진</a></li>
+                        <li><a href="/posts/beforeafter">치료전후사진</a></li>
                         <!-- 20220103 수정 끝 -->
-                        <li><a href="/qna/">온라인상담</a></li>
-                        <li><a href="/news/">언론보도</a></li>
+                        <li><a href="/posts/qna">온라인상담</a></li>
+                        <li><a href="/posts/news">언론보도</a></li>
                     </ol>
                 
             </li>
@@ -617,6 +617,35 @@
     }
 </style>
 <script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    var csrftoken = getCookie('csrftoken');
+    
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
     function reloadRecaptcha() {
         grecaptcha.execute('6LedxqgdAAAAADpJQx7JfzW06Fk8VoBE_xYps1PE', { action: 'submit' })
             .then(function (token) {
@@ -637,12 +666,12 @@
             return;
         }
         $.ajax({
-            url: "/user/ajaxlogin/",
+            url: "{%url 'user:ajaxlogin' %}",
             method: 'post',
             data: formData,
             success: function (res) {
                 if (res['result']) {
-                    location.href = '/'+next;
+                    location.href = '{{request.path}}'+next;
                     location.reload();
                     return;
                 } else {
@@ -697,48 +726,7 @@
                     </style>
 
                     <div class="tbl_counsel_write login_wrapper">
-                    {% include 'users/login.html' %}
-                    {% comment %} <form name="loginform" id="loginform" method="POST" action="/user/ajaxlogin/">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="EWlrhuRYB89P0kxjXm45xGFpDt2tkEHe4a46PmeHYE69yNJut8FZ9PAdKjx7lXXo">
-                        <p id="login_error" style="visibility: hidden; color: red;">
-                            아이디와 비밀번호가 일치하지 않습니다.
-                            <a href="/user/password/reset/" style="font-size: 0.8rem;color: #5eacff;">
-                                [비밀번호 찾기]
-                            </a>
-                        </p>
-                        <p id="recaptcha_error" style="display: none; color: red;">
-                            로봇 검증에 실패하였습니다.
-                            <a style="font-size: 0.8rem;color: #5eacff; cursor: pointer;" onclick="location.reload()">
-                                [새로고침]
-                            </a>
-                        </p>
-                        <input id="login_username" class="login_field" type="username" name="username" placeholder="ID" required="">
-                        <input id="login_password" class="login_field" type="password" name="password" placeholder="비밀번호" required="">
-                        <input id="recaptcha" class="django-recaptcha-hidden-field" type="hidden" name="g-recaptcha-response" value="03AGdBq26p3fWL74spmpuQEVbx-kPaovJqISZ16yOphmLUy8QPTob5yefcRaAAG637i8hwi8p4ABAJKb5X5pJveie5isNLZ0fS_WeDJJJmL8Ldymk018cvW_gqfdMXztHr4tzmfyqkQA29yAWlBG1BBuvcxrDBmYtVF1TLE--oMQPeUA4ahAcwZ9eL8h7XwhB_awm-ihq9WPUIaBFQlcT_aSGsr2c9fIDh6NINUbR8y9yFVKwYAql8y1FHBkrakLD1T2cLSLNomd7gQNZP87PuHXFdKmTTu6GR-CC6cvu3GRECIpBa-vMQE-_25FMV7PIe88Xi4-g8u09zdiAmnH8KqvhACEdjCaB9TSbe2hk8gNRP1OXXXWU9teDUl0lo7oaOMoqVNrTs0wCJihU087mSLZ1KinLquLOqYF8Sh234WTdvprmerJXtaLWDUKdHrmFzzOGFWG25d7hw">
-                        <div class="counsel_write_btn login_chunk_buttons" style="width: 100%; float:none;">
-                            <button type="button" style="width: 100%; cursor:pointer;" name="login_submit" class="counsel_cancel popup_login__button" data-next="" onclick="CheckLogin(this.dataset.next)">로그인</button>
-                            <a href="/user/signup/?next=/">
-                                <button type="button" class="counsel_submit" style="width: 100%; cursor:pointer;">회원가입</button>
-                            </a>
-                            <a href="/auth/naver/login/?method=oauth2&amp;next=/">
-                                <button type="button" class="counsel_submit" style="width: 100%; background-color:#07CF5C; color:white; border:0; cursor:pointer;">
-                                    <svg width="11" height="11" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 81V1H25L56 43.5V1H81V81H56.5L26 38V81H1Z" fill="white" stroke="white"></path>
-                                    </svg>
-                                    네이버 계정으로 로그인
-                                </button>
-                            </a>
-                            <a href="/auth/kakao/login/?method=oauth2&amp;next=/">
-                                <button type="button" class="counsel_submit" style="width: 100%; background-color:#F6D53E; color:#382828; border:0; cursor:pointer;">
-                                    <svg width="11" height="11" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M35.0099 15C35.0099 15 35.0099 28 18.0099 28C16.9488 28 15.95 27.9494 15.0099 27.8544C11.2999 30.2544 6 33 6 33L7.50992 25.7043C0.546211 21.9718 1.01 15 1.01 15C1.01 15 0.0099144 1 18.0099 1C36.0099 1 35.0099 15 35.0099 15Z" fill="#191919"></path>
-                                        <path d="M7.50992 25.7043C0.546211 21.9718 1.01 15 1.01 15C1.01 15 0.0099144 1 18.0099 1C36.0099 1 35.0099 15 35.0099 15C35.0099 15 35.0099 28 18.0099 28C16.9488 28 15.95 27.9494 15.0099 27.8544M7.50992 25.7043L6 33C6 33 11.2999 30.2544 15.0099 27.8544M7.50992 25.7043C9.46174 26.7504 11.9185 27.5421 15.0099 27.8544" stroke="#191919"></path>
-                                    </svg>
-                                    카카오 계정으로 로그인
-                                </button>
-                            </a>
-                        </div>
-                    </form> {% endcomment %}
+                        {% include 'users/login.html' %}
                     </div>
                 </div>
             </div>

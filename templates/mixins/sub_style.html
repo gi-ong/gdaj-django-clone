@@ -1,4 +1,26 @@
 {% load static %}
+<script>
+    $(document).ready(function(){
+        if(window.location.hash ) scroll(0,0);
+        setTimeout( function() { scroll(0,0); }, 1);
+        $(function() {    
+            if(window.location.hash) {
+                $('html, body').animate({
+                    scrollTop: $(window.location.hash).offset().top-200 + 'px'
+                }, 1000, 'swing');
+            }
+        });
+    })
+</script>
+<script type="text/javascript">
+    const popChunkUp = (elem) => {
+        document.getElementById(elem.dataset.target).classList.add('show')
+    }
+    const popChunkDown = (elem) => {
+        document.querySelectorAll('.popup-wrapper').forEach((elem) => elem.style.display = 'none');
+        document.querySelectorAll('.popup-wrapper').forEach((elem) => elem.classList.remove('show'));
+    };
+</script>
 <link rel="stylesheet" href="{% static "css/sub.css" %}" />
 <style>
     .show {

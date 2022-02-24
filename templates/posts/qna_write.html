@@ -9,7 +9,7 @@
     <meta property="og:description" content="광덕안정치과의원 온라인상담 페이지" />
     <meta name="twitter:title" content="광덕안정치과의원 온라인상담" />
     <meta name="twitter:description" content="광덕안정치과의원 온라인상담 페이지" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
+    {% include "mixins/sub_style.html" %}
 {% endblock head_info %}
 
 {% block body_info %}
@@ -19,16 +19,16 @@
                     <h1>커뮤니티</h1>
                     <ul class="catewrap">
                         <li class="category">
-                            <a href="#">공지사항 / 이벤트</a>
+                            <a href="/posts/notice">공지사항 / 이벤트</a>
                         </li>
                         <li class="category">
-                            <a href="#">치료 전후사진</a>
+                            <a href="/posts/beforeafter">치료 전후사진</a>
                         </li>
                         <li class="category  active">
-                            <a href="#">온라인상담</a>
+                            <a href="/posts/qna">온라인상담</a>
                         </li>
                         <li class="category">
-                            <a href="#">언론보도</a>
+                            <a href="/posts/news">언론보도</a>
                         </li>
                     </ul>
                 </div>
@@ -130,3 +130,6 @@
             </div>
         </div>
 {% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

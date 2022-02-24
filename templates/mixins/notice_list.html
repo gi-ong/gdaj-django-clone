@@ -1,0 +1,16 @@
+<tr>
+    <td>{{notice.care_type}}</td>
+    <td class="title">
+        <a href="{%url 'posts:notice_detail' notice.pk %}">
+            <p class="text_overflow w_760">
+                {{notice.title}}
+            </p>
+        </a>
+    </td>
+    <td>
+        <p class="text_overflow w_200">
+            {{notice.host.username}}
+        </p>
+    </td>
+    <td>{{notice.created|date:'Y-m-d'}}</td>
+</tr>

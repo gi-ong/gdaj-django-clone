@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block page_title %}회원가입{% endblock page_title %}
+{% block head_info %}
+    <meta name="description" content="서울 서초구 방배동 이수역치과, 치아교정, 부분교정, 투명교정, 클리피씨, 인비절라인, 임플란트, 치아미백, 충치, 사랑니, 구강검진">
+    <meta name="keywords" content="서울 서초구 방배동 이수역치과, 투명교정, 클리피씨, 치아교정, 부분교정, 인비절라인, 임플란트, 치아미백, 충치, 사랑니, 인비절라인, 군인교정">
+    <meta property="og:title" content="광덕안정치과의원" />
+    <meta property="og:description" content="광덕안정치과의원" />
+    <meta name="twitter:title" content="광덕안정치과의원" />
+    <meta name="twitter:description" content="광덕안정치과의원" />
+    {% include "mixins/sub_style.html" %}
+    <style>
+        .grecaptcha-badge{
+            display:none;
+        }
+    </style>
+    <style>
+        .signup_bottom {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
+    <script>
+        grecaptcha.ready(function() {
+            var grecaptcha_execute = function(){
+        grecaptcha.execute('6LedxqgdAAAAADpJQx7JfzW06Fk8VoBE_xYps1PE', {action: 'submit'}).then(function(token) {
+            document.querySelectorAll('input.django-recaptcha-hidden-field').forEach(function (value) {
+                value.value = token;
+            });
+            return token;
+        })
+    };
+    grecaptcha_execute()
+    setInterval(grecaptcha_execute, 120000);
+    
+    
+        });
+    </script>
+{% endblock head_info %}
+
+
+{% block body_info %}
+        <div class="container">
+            <div class="pagetop pagetop1">
+                <div class="page_hgroup com">
+                    <h1>커뮤니티</h1>
+                    <ul class="catewrap">
+                        <!-- 활성화시 class.active 효과 추가해주세요 -->
+                        <li class="category">
+                            <a href="/posts/notice">공지사항 / 이벤트</a>
+                        </li>
+                        <li class="category">
+                            <a href="/posts/beforeafter">치료 전후사진</a>
+                        </li>
+                        <li class="category">
+                            <a href="/posts/qna">온라인상담</a>
+                        </li>
+                        <li class="category">
+                            <a href="/posts/news">언론보도</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="contents subnotice">
+            <div class="center" style="width:400px;">
+                <h1 class="subtitle" style="text-align: center;">간편  회원가입</h1>
+        
+                <!-- 게시판 목록 시작 -->
+                <div class="tbl_counsel_write">
+                    
+        
+                    <form class="signup" id="signup_form" method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}    
+                        
+                        
+                        
+                        <input type="text" name="username" placeholder="아이디" maxlength="150" style="margin-bottom:10px;" required="" id="id_username">
+                        
+                        
+                        <input type="email" name="email" placeholder="이메일 주소" maxlength="254" style="margin-bottom:10px;" id="id_email">
+                        
+                        
+                        <input type="hidden" class="django-recaptcha-hidden-field" name="g-recaptcha-response" value="03AGdBq24rreTvpcho9hAZqAB3GD68xcHfgTRi2dFgfHQnrxXgqh_TWUcz6QbDaoRrbjxVy1ypclIb2RwR68iVwRL1iKnLL7HW4cZEZSv3Ni7fMXY3mQ8MVJDBfIfgMzAxqNIt8LtaMW3Zleej5KU8G34_X7uGh1AHWRAk2_UGpVZWsJHg-Puof4_Wpw4CThUFLTDbm-_LJWDDMbsBVPXd5l6MQyvwRX0wIq4EvNNmVyKobOwbEEHMBuTuiJ4JGN6lkU0uJSQBcE2kBvsEMqM2GmiVbXfak0x3O7qQwbcQ7fDp6UubsZfbCXKaDy3Nrk-BX8IOeiUumeHhRXJkzH1bSE1lnZFWifn2Oaa6He2n4HXMrDNRS1BePPf9mpGLR6WWdfHH9qEdMiMXyb8idx3uzWyJDCa7MbTRu9plsdqhbriNzhkOrapjAKBNdDSXU6aM7YDGJDIKbipY">
+                        
+                        
+                        <input type="password" name="password" placeholder="비밀번호" style="margin-bottom:10px;" required="" id="id_password">
+                        
+                        
+                        <input type="password" name="password1" placeholder="비밀번호 확인" style="margin-bottom:10px;" required="" id="id_password1">
+                        
+                        {% for field in form %}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <p style="color:red;">{{error}}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        <!-- <input type="hidden" id="recaptcha" class="django-recaptcha-hidden-field" name="g-recaptcha-response" value="" /> -->
+                        <input type="hidden" name="next" value="{{request.get_full_path}}">
+                        <div class="counsel_write_btn signup_bottom" style="display:flex; flex-direction:column;">
+                            <div>
+                                <input type="checkbox" id="write_chk" style="width:12px; height:12px;" checked="">
+                                <label for="write_chk">개인정보 수집 및 이용에 동의합니다 <a href="javascript:;" data-target="perinfo" onclick="popChunkUp(this)">[보기]</a></label>
+                            </div>
+                            <div class="check-agree" style=" text-align: center; margin: 10px;">
+                                <button class="counsel_cancel" type="submit">
+                                    회원가입
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

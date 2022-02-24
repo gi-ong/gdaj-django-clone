@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_title %}치아교정 종류{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 치아교정" />
@@ -9,10 +10,10 @@
     <meta property="og:description" content="광덕안정치과의원 " />
     <meta name="twitter:title" content="광덕안정치과의원 치아교정" />
     <meta name="twitter:description" content="광덕안정치과의원  치아교정 페이지" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub_braces.css" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/swiper.min.css" />
-    <script src="//cdn.gdajdental.gdaj/lib/swiper.min.js"></script>
+    <link rel="stylesheet" href="{% static "css/swiper.min.css" %}" />
+    <link rel="stylesheet" href="{% static "css/sub_braces.css" %}" />
+    <script src="{% static "lib/swiper.min.js"%}"></script>
+    {% include "mixins/sub_style.html" %}
 {% endblock head_info %}
 
 {% block body_info %}
@@ -22,11 +23,11 @@
                     <h1>치아교정</h1>
                     <ul class="catewrap">
                         <li class="category category600">
-                            <a href="#">광덕안정 치아교정 노하우</a>
+                            <a href="/align">광덕안정 치아교정 노하우</a>
                         </li>
                         <!--20211102 텍스트 수정 시작 -->
                         <li class="category category600 active">
-                            <a href="#">교정장치 종류</a>
+                            <a href="/align/type">교정장치 종류</a>
                         </li>
                         <!--20211102 텍스트 수정 끝 -->
                     </ul>
@@ -36,9 +37,8 @@
         <div class="ort_contents">
             <div class="oc braces_section">
                 <div class="center">
-                    <div class="braces_section_3">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/braces/braces_icon.png"
-                                alt="아이콘" /></div>
+                    <div class="braces_section_3" id="clippy">
+                        <div class="section_icon"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/braces_icon.png" alt="아이콘"></div>
                         <!-- 20211102 수정 시작 (텍스트 & p tag 추가) -->
                         <div class="section_title1">불편함이 적고 교정기간이 단축되는 장치</div>
                         <div class="section_title2">클리피씨 교정</div>
@@ -73,7 +73,7 @@
                                 </ul>
                             </div>
                             <div class="r">
-                                <img src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_3_image.jpg" alt="" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_3_image.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -81,9 +81,9 @@
             </div>
             <div class="oc braces_section braces_section_bg_gray">
                 <div class="center">
-                    <div class="braces_section_2">
+                    <div class="braces_section_2" id="clarity">
                         <div class="section_icon">
-                            <img src="//cdn.gdajdental.gdaj/img/sub/braces/braces_icon.png" alt="아이콘" />
+                            <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/braces_icon.png" alt="아이콘">
                         </div>
                         <!-- 20211102 텍스트 수정 시작 -->
                         <div class="section_title1">더욱 심미적이고 교정기간이 단축되는 장치</div>
@@ -91,7 +91,7 @@
                         <div class="section_title2">클라리티 교정</div>
                         <div class="section_contents section_contents_l">
                             <div class="l">
-                                <img src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_2_image.jpg" alt="" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_2_image.jpg" alt="">
                             </div>
                             <div class="r section_contents_desc">
                                 <div class="section_contents_title">심미적으로 뛰어난 자가결찰장치</div>
@@ -127,9 +127,8 @@
             </div>
             <div class="oc braces_section">
                 <div class="center">
-                    <div class="braces_section_5">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/braces/braces_icon.png"
-                                alt="아이콘" /></div>
+                    <div class="braces_section_5" id="inivisible">
+                        <div class="section_icon"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/braces_icon.png" alt="아이콘"></div>
                         <div class="section_title1">심미성과 위생을 챙기고 싶다면?</div>
                         <div class="section_title2">투명 교정</div>
                         <!-- 20211123 수정 시작 -->
@@ -160,7 +159,7 @@
                                 <!-- 20211102 수정 끝 -->
                             </div>
                             <div class="r">
-                                <img src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_5_image.jpg" alt="" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_5_image.jpg" alt="">
                             </div>
                         </div>
                         <!-- 20211123 수정 끝 -->
@@ -169,14 +168,13 @@
             </div>
             <div class="oc braces_section braces_section_bg_gray">
                 <div class="center">
-                    <div class="braces_section_4">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/braces/braces_icon.png"
-                                alt="아이콘" /></div>
+                    <div class="braces_section_4" id="partial">
+                        <div class="section_icon"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/braces_icon.png" alt="아이콘"></div>
                         <div class="section_title1">앞니만 빠르게 교정하고 싶다면?</div>
                         <div class="section_title2">부분 교정</div>
                         <div class="section_contents section_contents_l">
                             <div class="l">
-                                <img src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_4_image.jpg" alt="" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_4_image.jpg" alt="">
                             </div>
                             <div class="r section_contents_desc">
                                 <div class="section_contents_title">필요한 부분만! 빠르고 경제적인 교정</div>
@@ -209,15 +207,14 @@
             <!-- 20211123 수정 시작 -->
             <div class="oc braces_section">
                 <div class="center">
-                    <div class="braces_section_6">
-                        <div class="section_icon"><img src="//cdn.gdajdental.gdaj/img/sub/braces/braces_icon.png"
-                                alt="아이콘" /></div>
+                    <div class="braces_section_6" id="tongue">
+                        <div class="section_icon"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/braces_icon.png" alt="아이콘"></div>
                         <div class="section_title1">가장 심미적인 장치를 찾고 있다면?</div>
                         <div class="section_title2">설측 교정</div>
                         <div class="section_contents section_contents_r">
                             <div class="l section_contents_desc">
                                 <ul class="section_contents_list">
-                                    <li>치아를 발치하는 발치 전체 교정이 필요하나,<br />심미적인 이유로 보이지 않는 교정장치를 고민 중인 경우</li>
+                                    <li>치아를 발치하는 발치 전체 교정이 필요하나,<br>심미적인 이유로 보이지 않는 교정장치를 고민 중인 경우</li>
                                 </ul>
                                 <ul class="section_contents_card">
                                     <li>
@@ -238,65 +235,71 @@
                                 </ul>
                             </div>
                             <div class="r ">
-                                <img src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_6_image.jpg" alt="" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_6_image.jpg" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="oc braces_section braces_section7_wrap braces_section_bg_gray ">
+            <div class="oc braces_section braces_section7_wrap braces_section_bg_gray " id="bf">
                 <div class="center ">
                     <div class="braces_section_7">   
-                        <p class="section_7_title">BEFORE & AFTER</p>
+                        <p class="section_7_title">BEFORE &amp; AFTER</p>
                         <p class="section_7_desc">광덕안정치과의 튼튼하고 체계적인 임플란트 식립 사례</p>
                         <div class="braces_swiper">
-                            <div class="swiper mySwiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_1.jpg" alt="" />
-                                    </div>
-                                    <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_2.jpg" alt="" />
-                                    </div>
-                                    <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_3.jpg" alt="" />
-                                    </div>
-                                    <div class="swiper-slide"><img
-                                            src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_4.jpg" alt="" />
-                                    </div>
+                            <div class="beflog" style="{% if user.is_authenticated %}opacity:0; {% else %}opacity:1;{% endif %}">
+                                <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
+                                <div class="iconwrap">
+                                    <a href="/auth/kakao/login/?method=oauth2&amp;next=/align/type#bf" class="kakao">
+                                        <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                    </a>
+                                    <a href="/auth/naver/login/?method=oauth2&amp;next=/align/type#bf" class="naver" style="margin-right:10px;">
+                                        <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+                                    </a>
+                                    <a href="javascript:;" class="login_btn_pop" onclick="document.querySelectorAll('.login_chunk_buttons a').forEach(i=>i.href+='#bf')document.querySelector('.popup_login__button').dataset.next='#bf';">
+                                        <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                                    </a>
                                 </div>
                             </div>
-                            <div class="braces_swiper_prev"><img
-                                    src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_prev.jpg" alt="이전" />
+                            <div class="swiper mySwiper swiper-container-initialized swiper-container-horizontal">
+                                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                    <!-- 20220104 수정 시작 -->
+                                    <div class="swiper-slide swiper-slide-active" style="width: 1200px;"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_1.jpg" alt="CASE 01 : 총생 치아교정">
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-next" style="width: 1200px;"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_2.jpg" alt="CASE 02 : 치아사이 벌어짐">
+                                    </div>
+                                    <div class="swiper-slide" style="width: 1200px;"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_3.jpg" alt="CASE 03 : 부분교정(앞니가 벌어진 경우)">
+                                    </div>
+                                    <div class="swiper-slide" style="width: 1200px;"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_4.jpg" alt="CASE 04 : 소아 치아 교정(1차 턱교정, 2차 치아교정)">
+                                    </div>
+                                    <div class="swiper-slide" style="width: 1200px;"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_5.jpg" alt="CASE 05 : 돌출입 치아교정">
+                                    </div>
+                                    <div class="swiper-slide" style="width: 1200px;"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_6.jpg" alt="CASE 06 : 주걱턱 치아교정">
+                                    </div>
+                                </div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                            <div class="braces_swiper_prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_prev.png" alt="이전">
                             </div>
-                            <div class="braces_swiper_next"><img
-                                    src="//cdn.gdajdental.gdaj/img/sub/braces/sub_braces_section_7_next.jpg" alt="다음" />
+                            <div class="braces_swiper_next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"><img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/sub/braces/sub_braces_section_7_next.png" alt="다음">
                             </div>
+                            <!-- 20220104 수정 끝 -->
                         </div>
                         <!-- 로그인 전 검은색 박스-->
-                        <div class="beflog">
-                            <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
-                            <div class="iconwrap">
-                                <a href="#" class="kakao">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/kakao_af.png" alt="카카오 아이콘">
-                                </a>
-                                <a href="#" class="naver">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/naver.png" alt="네이버 아이콘">
-                                </a>
-                            </div>
-                        </div>
+                        
                     </div> 
                 </div>
             </div>
             <!-- 20211123 수정 끝 -->
             <script>
+                // 20220104 수정 시작 
                 var swiper = new Swiper(".mySwiper", {
-                    loop: true,
+                    loop: false,
                     navigation: {
                         nextEl: ".braces_swiper_next",
                         prevEl: ".braces_swiper_prev",
                     }
                 });
+                // 20220104 수정 끝 
             </script>
         </div>
 {% endblock body_info %}

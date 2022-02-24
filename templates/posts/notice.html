@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_title %}공지사항/이벤트{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 공지사항/이벤트" />
@@ -9,7 +10,7 @@
     <meta property="og:description" content="광덕안정치과의원 공지사항/이벤트 페이지" />
     <meta name="twitter:title" content="광덕안정치과의원 공지사항/이벤트" />
     <meta name="twitter:description" content="광덕안정치과의원 공지사항/이벤트 페이지" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
+    {% include "mixins/sub_style.html" %}
 {% endblock head_info %}
 
 {% block body_info %}
@@ -20,16 +21,16 @@
                     <ul class="catewrap">
                         <!-- 활성화시 class.active 효과 추가해주세요 -->
                         <li class="category active">
-                            <a href="#">공지사항 / 이벤트</a>
+                            <a href="/posts/notice">공지사항 / 이벤트</a>
                         </li>
                         <li class="category">
-                            <a href="#">치료 전후사진</a>
+                            <a href="/posts/beforeafter">치료 전후사진</a>
                         </li>
                         <li class="category">
-                            <a href="#">온라인상담</a>
+                            <a href="/posts/qna">온라인상담</a>
                         </li>
                         <li class="category">
-                            <a href="#">언론보도</a>
+                            <a href="/posts/news">언론보도</a>
                         </li>
                     </ul>
                 </div>
@@ -45,23 +46,25 @@
                         <div class="no_list_total">
                             <span>
                                 총
-                                <span>11</span>
+                                <span>{{notices.count}}</span>
                                 건
                             </span>
                         </div>
-                        <form>
+                        <form type="GET" action="/posts/notice/search" id="search-box">
                             <ul>
                                 <li class="fir">
-                                    <select class="selbox">
-                                        <option value="">전체</option>
-                                        <option value="">공지</option>
-                                        <option value="">이벤트</option>
+                                    <select name="c" class="selbox" form="search-box">
+                                        <option value="all">전체</option>
+                                        <option value="notice">공지</option>
+                                        <option value="event">이벤트</option>
                                     </select>
                                 </li>
                                 <li class="sec">
-                                    <input class="sch_input" type="text" placeholder="검색">
-                                    <a href="#">
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/search.png" alt="검색 버튼" />
+                                    <input class="sch_input" type="text" name="q" value placeholder="검색">
+                                    <a href type="submit">
+                                        <button style="cursor: pointer;">
+                                            <img src="{% static "img/assets/search.png" %}" alt="검색 버튼" />
+                                        </button>
                                     </a>
                                 </li>
                             </ul>
@@ -85,7 +88,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {% for notice in notices %}
+                                    {% include 'mixins/notice_list.html' with notice=notice %}
+                                {% endfor %}
+                                {% comment %} <tr>
                                     <td>공지</td>
                                     <td class="title">
                                         <a href="#">
@@ -117,135 +123,7 @@
                                         </p>
                                     </td>
                                     <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>공지</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_760">
-                                                [안내] 코로나 19, 광덕안정치과병원은 안전합니다-Ⅱ[안내] 코로나 19
-                                            </p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="text_overflow w_200">
-                                            광덕안정치과
-                                        </p>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
+                                </tr> {% endcomment %}
                             </tbody>
                         </table>
                         <div class="paging">
@@ -254,7 +132,7 @@
                                 <a href="#" class="paging-first"></a>
                                 <a href="#" class="paging-prev"></a>
                             </span>
-                            <span id=pagingnumber>
+                            <span id="pagingnumber">
                                 <!-- 활성화시 class.active 효과 추가해주세요 -->
                                 <a href="#" class="active">1</a>
                                 <a href="#">2</a>
@@ -268,9 +146,8 @@
                                 <a href="#">10</a>
                             </span>
                             <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-next active"></a>
-                                <a href="#" class="paging-last active"></a>
+                                <a href="" class="paging-next" style="opacity:0.2;"></a>
+                                <a href="" class="paging-last" style="opacity:0.2;"></a>
                             </span>
                         </div>
                     </div>
@@ -278,3 +155,6 @@
             </div>
         </div>
 {% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

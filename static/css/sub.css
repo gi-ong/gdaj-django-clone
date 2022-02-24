@@ -2115,7 +2115,7 @@ header#toph .bot_nav .menu li a {
     box-sizing: border-box;
     border: 1px solid rgb(204, 204, 204);
     background-color: var(--main-bg-color);
-    background: url('/dentalweb/cdn/statics/img/assets/expand_more_b.png')no-repeat 90% 50%/15px auto;
+    background: url('/static/img/assets/expand_more_b.png')no-repeat 90% 50%/15px auto;
     font-size: 15px;
     appearance: none;
     background-color: white;
@@ -2314,36 +2314,36 @@ header#toph .bot_nav .menu li a {
 }
 
 .contents .center .nolist .paging .paging_control .paging-first {
-    background: url(/dentalweb/cdn/statics/img/assets/first_paging_non.png) center center no-repeat;
+    background: url(/static/img/assets/first_paging_non.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging .paging_control .paging-first.active {
-    background: url(/dentalweb/cdn/statics/img/assets/first_paging.png) center center no-repeat;
+    background: url(/static/img/assets/first_paging.png) center center no-repeat;
 }
 
 
 .contents .center .nolist .paging .paging_control .paging-prev {
-    background: url(/dentalweb/cdn/statics/img/assets/prev_paging_non.png) center center no-repeat;
+    background: url(/static/img/assets/prev_paging_non.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging .paging_control .paging-prev.active {
-    background: url(/dentalweb/cdn/statics/img/assets/prev_paging.png) center center no-repeat;
+    background: url(/static/img/assets/prev_paging.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging_control .paging-next {
-    background: url(/dentalweb/cdn/statics/img/assets/next_paging.png) center center no-repeat;
+    background: url(/static/img/assets/next_paging.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging .paging_control .paging-next:active {
-    background: url(/dentalweb/cdn/statics/img/assets/next_paging_non.png) center center no-repeat;
+    background: url(/static/img/assets/next_paging_non.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging_control .paging-last {
-    background: url(/dentalweb/cdn/statics/img/assets/last_paging.png) center center no-repeat;
+    background: url(/static/img/assets/last_paging.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging .paging_control .paging-last:active {
-    background: url(/dentalweb/cdn/statics/img/assets/last_paging_non.png) center center no-repeat;
+    background: url(/static/img/assets/last_paging_non.png) center center no-repeat;
 }
 
 .contents .center .nolist .paging #pagingnumber .active {

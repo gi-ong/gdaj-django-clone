@@ -237,7 +237,7 @@
                             </div>
                         </div> {% endcomment %}
                         <!-- 로그인 전 검은색 박스-->
-                        <div class="beflog">
+                        <div class="beflog" style="{% if user.is_authenticated %}opacity:0; {% else %}opacity:1;{% endif %}">
                             <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
                             <div class="iconwrap">
                                 <a href="/auth/kakao/login/?method=oauth2&amp;next=/implant/type#bf" class="kakao">

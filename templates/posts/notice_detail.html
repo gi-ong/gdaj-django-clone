@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block page_title %}공지사항/이벤트 제목{% endblock page_title %}
+{% block page_title %}{{notice_detail.title}}{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 공지사항/이벤트" />
     <meta name="keywords" content="광덕안정치과의원,광덕안정,치과,치과병원" />
@@ -9,7 +9,7 @@
     <meta property="og:description" content="광덕안정치과의원 공지사항/이벤트 페이지" />
     <meta name="twitter:title" content="광덕안정치과의원 공지사항/이벤트" />
     <meta name="twitter:description" content="광덕안정치과의원 공지사항/이벤트 페이지" />
-    <link rel="stylesheet" href="//cdn.gdajdental.gdaj/css/sub.css" />
+    {% include "mixins/sub_style.html" %}
 {% endblock head_info %}
 
 {% block body_info %}
@@ -19,16 +19,16 @@
                     <h1>커뮤니티</h1>
                     <ul class="catewrap">
                         <li class="category active">
-                            <a href="#">공지사항 / 이벤트</a>
+                            <a href="/posts/notice">공지사항 / 이벤트</a>
                         </li>
                         <li class="category">
-                            <a href="#">치료 전후사진</a>
+                            <a href="/posts/beforeafter">치료 전후사진</a>
                         </li>
                         <li class="category">
-                            <a href="#">온라인상담</a>
+                            <a href="/posts/qna">온라인상담</a>
                         </li>
                         <li class="category">
-                            <a href="#">언론보도</a>
+                            <a href="/posts/news">언론보도</a>
                         </li>
                     </ul>
                 </div>
@@ -49,43 +49,28 @@
                         <tbody>
                             <tr>
                                 <td class="col1">
-                                    <p class="w_185">이벤트</p>
+                                    <p class="w_185">{{notice_detail.care_type}}</p>
                                 </td>
                                 <td class="col2">
-                                    <p class="w_820">광덕안정치과 원데이 미백 프로그램 이벤트</p>
+                                    <p class="w_820">{{notice_detail.title}}</p>
                                 </td>
-                                <td class="col3 w_195">2021-08-31</td>
+                                <td class="col3 w_195">{{notice_detail.created|date:'Y-m-d'}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="board_conts">
                     <img src="//cdn.gdajdental.gdaj/img/event.png" alt="원데이 미백 프로그램" />
-                    <p>
-                        치아는 말을 하거나 웃을 때 잘 보이는 부위이다 보니, 치아의 라인 뿐만이 아니라 색상도 인상을 결정 짓는 중요한 부분이기도 합니다. <br />
-
-                        다만 치아는 새로 나올 수가 없어서 커피나 흡연 등, 착색이 쉬운 습관을 오래 지속하면 어쩔 수 없이 물들 수 밖에 없는데요. <br /><br /><br />
-
-                        ​
-
-                        이와 같이 치아 색상으로 고민하시는 분들을 위해! 이수역 광덕안정치과에서 치아미백 이벤트를 준비했습니다. <br />
-
-                        광덕안정치과는 안전하고 검증된 전문가 미백으로 1일 3회 집중 치료를 진행하여 하루만에 밝은 치아를 확인하실 수 있는데요. <br /><br /><br />
-
-                        ​
-
-                        환자의 부담을 덜어드릴 수 있는 특별한 이벤트도 진행 중이니, 지점으로 바로 문의를 남겨주세요. :) <br /><br />
-
-
-
-                        ☎ 지점 문의 : 02-6339-2875
-                    </p>
+                    <p>{{notice_detail.text}}</p>
                 </div>
                 <div class="bot">
-                    <a href="#">
+                    <a href="/posts/notice">
                         <span class="listbtn">목록</span>
                     </a>
                 </div>
             </div>
         </article>
 {% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

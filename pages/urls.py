@@ -21,6 +21,6 @@ urlpatterns = [
     path("align", TemplateView.as_view(template_name="align/align.html")),
     path("beauty/1day", TemplateView.as_view(template_name="beauty/beauty_1day.html")),
     path("beauty", TemplateView.as_view(template_name="beauty/beauty.html")),
-    path("gnral/type", TemplateView.as_view(template_name="gnral/gnral_type.html")),
-    path("gnral", TemplateView.as_view(template_name="gnral/gnral.html")),
+    path("general/type", TemplateView.as_view(template_name="gnral/gnral_type.html")),
+    path("general", TemplateView.as_view(template_name="gnral/gnral.html")),
 ]
