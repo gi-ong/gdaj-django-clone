@@ -1,5 +1,5 @@
 from multiprocessing import AuthenticationError
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, resolve_url
 from django.views.generic import FormView
 from . import mixins, forms, models
 from django.contrib.auth import login, logout, authenticate
@@ -125,8 +125,6 @@ def log_out(request):
 class SignUpView(mixins.LoggedOutOnlyView, FormView):
     template_name = "users/signup.html"
     form_class = forms.SignUpForm
-    success_url = reverse_lazy("pages:home")
-    redirect_field_name = "next"
 
     def form_valid(self, form):
         form.save()
@@ -136,6 +134,10 @@ class SignUpView(mixins.LoggedOutOnlyView, FormView):
         if user is not None:
             login(self.request, user)
         return super().form_valid(form)
+
+    def get_success_url(self):
+        next_url = self.request.GET.get("next") or "/"
+        return resolve_url(next_url)
 
 
 # mixins.LoggedOutOnlyView,

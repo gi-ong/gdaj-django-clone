@@ -98,7 +98,7 @@
                             {% endif %}
                         {% endfor %}
                         <!-- <input type="hidden" id="recaptcha" class="django-recaptcha-hidden-field" name="g-recaptcha-response" value="" /> -->
-                        <input type="hidden" name="next" value="{{request.get_full_path}}">
+                        {% comment %} <input type="hidden" name="next" value="{{request.get_full_path}}"> {% endcomment %}
                         <div class="counsel_write_btn signup_bottom" style="display:flex; flex-direction:column;">
                             <div>
                                 <input type="checkbox" id="write_chk" style="width:12px; height:12px;" checked="">
