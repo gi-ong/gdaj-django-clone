@@ -137,7 +137,14 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_ROOT = BASE_DIR / "uploads"
+
+MEDIA_URL = "/uploads/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+GOOGLE_RECAPCHA_SECRET_KEY = "6Lcuh54eAAAAAHZ8ICDSNi5jFf2E7q3gGojh_xs6"

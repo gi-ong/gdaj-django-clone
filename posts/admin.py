@@ -3,6 +3,11 @@ from django.utils.html import mark_safe
 from . import models
 
 
+class PhotoInline(admin.TabularInline):
+
+    model = models.NoticePhoto
+
+
 @admin.register(models.QnaPost)
 class QnaAdmin(admin.ModelAdmin):
 
@@ -17,6 +22,8 @@ class QnaAdmin(admin.ModelAdmin):
 class NoticeAdmin(admin.ModelAdmin):
 
     """NoticePost Admin Definition"""
+
+    inlines = (PhotoInline,)
 
     list_filter = ("notice_type",)
 

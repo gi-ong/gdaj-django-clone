@@ -16,11 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users.views import LoginView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", include("pages.urls", namespace="pages")),
     path("posts/", include("posts.urls", namespace="posts")),
     path("user/", include("users.urls", namespace="user")),
-    path("user/ajaxlogin/", LoginView.as_view()),
+    # path("user/ajaxlogin/", LoginView.as_view()),
     path("admin/", admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

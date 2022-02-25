@@ -60,7 +60,9 @@
                     </table>
                 </div>
                 <div class="board_conts">
-                    <img src="//cdn.gdajdental.gdaj/img/event.png" alt="원데이 미백 프로그램" />
+                    {% for photo in notice_detail.get_photos %}
+                        <img alt="" src="{{ MEDIA_URL }}{{photo.file.url}}" style="height:1200px; width:600px">
+                    {% endfor %}
                     <p>{{notice_detail.text}}</p>
                 </div>
                 <div class="bot">
