@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.http import HttpResponse
-from django.contrib.auth.forms import AuthenticationForm
 import json
 
 
@@ -27,7 +26,7 @@ def ajax_login(request):
                 response_data["message"] = 'You"re logged in'
             else:
                 response_data["errors"] = "failed"
-                response_data["captcha"] = "good"
+                response_data["captcha"] = "dd"
                 response_data["message"] = "You messed up"
             return HttpResponse(
                 json.dumps(response_data), content_type="application/json"

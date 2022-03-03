@@ -15,7 +15,8 @@
     </p>
     <input id="login_username" class="login_field" type="username" name="username" placeholder="ID" required="">
     <input id="login_password" class="login_field" type="password" name="password" placeholder="비밀번호" required="">
-    <input id="recaptcha" class="django-recaptcha-hidden-field" type="hidden" name="g-recaptcha-response" value="03AGdBq26p3fWL74spmpuQEVbx-kPaovJqISZ16yOphmLUy8QPTob5yefcRaAAG637i8hwi8p4ABAJKb5X5pJveie5isNLZ0fS_WeDJJJmL8Ldymk018cvW_gqfdMXztHr4tzmfyqkQA29yAWlBG1BBuvcxrDBmYtVF1TLE--oMQPeUA4ahAcwZ9eL8h7XwhB_awm-ihq9WPUIaBFQlcT_aSGsr2c9fIDh6NINUbR8y9yFVKwYAql8y1FHBkrakLD1T2cLSLNomd7gQNZP87PuHXFdKmTTu6GR-CC6cvu3GRECIpBa-vMQE-_25FMV7PIe88Xi4-g8u09zdiAmnH8KqvhACEdjCaB9TSbe2hk8gNRP1OXXXWU9teDUl0lo7oaOMoqVNrTs0wCJihU087mSLZ1KinLquLOqYF8Sh234WTdvprmerJXtaLWDUKdHrmFzzOGFWG25d7hw">
+    <input id="recaptcha" class="django-recaptcha-hidden-field" type="hidden" data-sitekey="6Lcuh54eAAAAACY5j3-QpE8AXJLTSumFrlXQN5gW">
+    {% comment %} <input id="recaptcha" class="django-recaptcha-hidden-field" type="hidden" name="g-recaptcha-response" value="03AGdBq26p3fWL74spmpuQEVbx-kPaovJqISZ16yOphmLUy8QPTob5yefcRaAAG637i8hwi8p4ABAJKb5X5pJveie5isNLZ0fS_WeDJJJmL8Ldymk018cvW_gqfdMXztHr4tzmfyqkQA29yAWlBG1BBuvcxrDBmYtVF1TLE--oMQPeUA4ahAcwZ9eL8h7XwhB_awm-ihq9WPUIaBFQlcT_aSGsr2c9fIDh6NINUbR8y9yFVKwYAql8y1FHBkrakLD1T2cLSLNomd7gQNZP87PuHXFdKmTTu6GR-CC6cvu3GRECIpBa-vMQE-_25FMV7PIe88Xi4-g8u09zdiAmnH8KqvhACEdjCaB9TSbe2hk8gNRP1OXXXWU9teDUl0lo7oaOMoqVNrTs0wCJihU087mSLZ1KinLquLOqYF8Sh234WTdvprmerJXtaLWDUKdHrmFzzOGFWG25d7hw"> {% endcomment %}
     <div class="counsel_write_btn login_chunk_buttons" style="width: 100%; float:none;">
         <button type="button" style="width: 100%; cursor:pointer;" name="login_submit" class="counsel_cancel popup_login__button" data-next="" onclick="CheckLogin(this.dataset.next)">로그인</button>
         <a href="/user/signup/?next={{request.path}}">

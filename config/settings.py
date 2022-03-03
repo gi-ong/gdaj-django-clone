@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-dwks)v1x*o)9xmfki%*#_+m3h_cc+pbg!v=b%4-ik1gkn&cyt1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -147,4 +147,5 @@ MEDIA_URL = "/uploads/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-GOOGLE_RECAPCHA_SECRET_KEY = "6Lcuh54eAAAAAHZ8ICDSNi5jFf2E7q3gGojh_xs6"
+
+GOOGLE_RECAPTCHA_SECRET_KEY = "6Lcuh54eAAAAAHZ8ICDSNi5jFf2E7q3gGojh_xs6"

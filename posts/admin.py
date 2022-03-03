@@ -8,6 +8,26 @@ class PhotoInline(admin.TabularInline):
     model = models.NoticePhoto
 
 
+class BnAPhotoInline(admin.TabularInline):
+
+    model = models.BnAPhoto
+
+
+@admin.register(models.BnAPost)
+class BnAAdmin(admin.ModelAdmin):
+
+    """BnA Admin Definition"""
+
+    inlines = (BnAPhotoInline,)
+
+    list_filter = ("bna_type",)
+
+    list_display = (
+        "title",
+        "bna_type",
+    )
+
+
 @admin.register(models.QnaPost)
 class QnaAdmin(admin.ModelAdmin):
 
@@ -33,7 +53,20 @@ class NoticeAdmin(admin.ModelAdmin):
 @admin.register(models.NoticePhoto)
 class NoticePhotoAdmin(admin.ModelAdmin):
 
-    """Photo Admin Definition"""
+    """Notice Photo Admin Definition"""
+
+    list_display = ("__str__", "get_thumbnail")
+
+    def get_thumbnail(self, obj):
+        return mark_safe(f'<img width="50px" src="{obj.file.url}" />')
+
+    get_thumbnail.short_description = "Thumbnail"
+
+
+@admin.register(models.BnAPhoto)
+class BnAPhotoAdmin(admin.ModelAdmin):
+
+    """BnAPhoto Admin Definition"""
 
     list_display = ("__str__", "get_thumbnail")
 

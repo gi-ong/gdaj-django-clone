@@ -1,0 +1,24 @@
+<li class="b_pic"> 
+    <div class="pic">
+        {% for photo in bna.get_photos %}
+            <img style="position:absolute; z-index:-1;width: 100%;height: 100%;" src="{{ MEDIA_URL }}{{photo.file.url}}" alt="치료 후 사진">
+        {% endfor %}
+        {% if not user.is_authenticated %}
+            <div class="text">
+                <p>의료법상 치료사례 확인은 로그인 후 가능합니다.</p>
+                <div class="icon" style="text-align: center; width: 100%;">
+                    <a href="/auth/kakao/login/?method=oauth2&amp;next=/beforeafter/">
+                        <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+                    </a>
+                    <a href="/auth/naver/login/?method=oauth2&amp;next=/beforeafter/">
+                        <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+                    </a>
+                    <a href="javascript:;" class="login_btn_pop">  
+                        <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <p class="cap"><span class="cap__category">[{{bna.bna_type}}]</span> {{bna.title}}</p>
+</li>

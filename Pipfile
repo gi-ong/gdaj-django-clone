@@ -9,6 +9,7 @@ django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
 django-bootstrap-modal-forms = "*"
 django-widget-tweaks = "*"
 pillow = "*"
+django-recaptcha = "*"
 
 [dev-packages]
 flake8 = "*"

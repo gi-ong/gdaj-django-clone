@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%load static %}
 {% block page_title %}치료 전후 사진{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 커뮤니티 치료 전후사진" />
@@ -46,115 +47,168 @@
                         <div class="no_list_total">
                             <span>
                                 총
-                                <span>11</span>
+                                <span>{{bnas.count}}</span>
                                 건
                             </span>
                         </div>
-                        <form>
+                        <form class="search_form">
                             <ul>
-                                <li class="sec">
-                                    <input class="sch_input" type="text" placeholder="검색">
-                                    <a href="#">
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/search.png" alt="검색 버튼" />
-                                    </a>
-                                </li>
                                 <li class="fir">
-                                    <select class="selbox">
-                                        <option value="">전체</option>
-                                        <option value="">임플란트</option>
-                                        <option value="">치아교정</option>
-                                        <option value="">심미치료</option>
+                                    <select class="selbox" name="type">
+                                        <option value="tc">전체</option>
+                                        <option value="title">제목</option>
+                                        <option value="contents">내용</option>
                                     </select>
+                                </li>
+                                <li class="sec">
+                                    <input class="sch_input" name="q" type="text" placeholder="검색">
+                                    <a onclick="$('.search_form').submit();">
+                                        <img src="{% static "img/assets/search.png" %}" alt="검색 버튼">
+                                    </a>
                                 </li>
                             </ul>
                         </form>
                     </div>
                     <div class="af_wrap">
                         <ul>
-                            <li class="b_pic">
+                            {% for bna in bnas %}
+                                {% include 'mixins/bna_list.html' with bna=bna %}
+                            {% endfor %}
+                            {% comment %} <li class="b_pic"> 
                                 <div class="pic">
-                                    <div class="text">
-                                        <img src="" alt="" />
-                                        <p>의료법상 치료사례 정보는 로그인후 가능합니다.</p>
-                                        <div class="icon">
-                                            <!-- 20211206 수정 시작 -->
-                                            <a href="#">
-                                                <img src="//cdn.gdajdental.gdaj/img/assets/kakao_af.png"
-                                                    alt="카카오 아이콘" />
+                                    <img style="position:absolute; z-index:-1;width: 100%;height: 100%;" src="//cdn.gdaj.net/dentalweb/cloud/beforeafters/1_after.jpg" alt="치료 후 사진">
+                                    
+                                    <div class="text __web-inspector-hide-shortcut__">
+                                        <p>의료법상 치료사례 확인은 로그인 후 가능합니다.</p>
+                                        <div class="icon" style="text-align: center; width: 100%;">
+                                            <a href="/auth/kakao/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
                                             </a>
-                                            <a href="#">
-                                                <img src="//cdn.gdajdental.gdaj/img/assets/naver.png" alt="네이버 아이콘" />
+                                            <a href="/auth/naver/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
                                             </a>
-                                            <!-- 20211206 수정 끝 -->
+                                            <a href="javascript:;" class="login_btn_pop">  
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                                            </a>
                                         </div>
                                     </div>
+                                    
                                 </div>
-                                <p class="cap">깨진치아/ 무삭제 라미네이트 진행</p>
+                                <p class="cap"><span class="cap__category">[치아교정]</span> 총생치아</p>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <div class="pic">
-                                        <img src="//cdn.gdajdental.gdaj/img/after.png" alt="치료 후 사진" />
+                            
+                            <li class="b_pic"> 
+                                <div class="pic">
+                                    <img style="position:absolute; z-index:-1;width: 100%;height: 100%;" src="//cdn.gdaj.net/dentalweb/cloud/beforeafters/3_after.jpg" alt="치료 후 사진">
+                                    
+                                    <div class="text __web-inspector-hide-shortcut__">
+                                        <p>의료법상 치료사례 확인은 로그인 후 가능합니다.</p>
+                                        <div class="icon" style="text-align: center; width: 100%;">
+                                            <a href="/auth/kakao/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                            </a>
+                                            <a href="/auth/naver/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+                                            </a>
+                                            <a href="javascript:;" class="login_btn_pop">  
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p class="cap">깨진치아/ 무삭제 라미네이트 진행</p>
-                                </a>
+                                    
+                                </div>
+                                <p class="cap"><span class="cap__category">[치아교정]</span> 치아사이벌어짐</p>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <div class="pic">
-                                        <img src="//cdn.gdajdental.gdaj/img/after.png" alt="치료 후 사진" />
+                            
+                            <li class="b_pic"> 
+                                <div class="pic">
+                                    <img style="position:absolute; z-index:-1;width: 100%;height: 100%;" src="//cdn.gdaj.net/dentalweb/cloud/beforeafters/4_after.jpg" alt="치료 후 사진">
+                                    
+                                    <div class="text __web-inspector-hide-shortcut__">
+                                        <p>의료법상 치료사례 확인은 로그인 후 가능합니다.</p>
+                                        <div class="icon" style="text-align: center; width: 100%;">
+                                            <a href="/auth/kakao/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                            </a>
+                                            <a href="/auth/naver/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+                                            </a>
+                                            <a href="javascript:;" class="login_btn_pop">  
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p class="cap">깨진치아/ 무삭제 라미네이트 진행</p>
-                                </a>
+                                    
+                                </div>
+                                <p class="cap"><span class="cap__category">[치아교정]</span> 소아 치아(1차 턱교정,2차 치아교정)</p>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <div class="pic">
-                                        <img src="//cdn.gdajdental.gdaj/img/after.png" alt="치료 후 사진" />
+                            
+                            <li class="b_pic"> 
+                                <div class="pic">
+                                    <img style="position:absolute; z-index:-1;width: 100%;height: 100%;" src="//cdn.gdaj.net/dentalweb/cloud/beforeafters/5-돌출입-치아교정_후.jpg" alt="치료 후 사진">
+                                    
+                                    <div class="text __web-inspector-hide-shortcut__">
+                                        <p>의료법상 치료사례 확인은 로그인 후 가능합니다.</p>
+                                        <div class="icon" style="text-align: center; width: 100%;">
+                                            <a href="/auth/kakao/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                            </a>
+                                            <a href="/auth/naver/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+                                            </a>
+                                            <a href="javascript:;" class="login_btn_pop">  
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p class="cap">깨진치아/ 무삭제 라미네이트 진행</p>
-                                </a>
+                                    
+                                </div>
+                                <p class="cap"><span class="cap__category">[치아교정]</span> 돌출입 치아교정</p>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <div class="pic">
-                                        <img src="//cdn.gdajdental.gdaj/img/after.png" alt="치료 후 사진" />
+                            
+                            <li class="b_pic"> 
+                                <div class="pic">
+                                    <img style="position:absolute; z-index:-1;width: 100%;height: 100%;" src="//cdn.gdaj.net/dentalweb/cloud/beforeafters/3--부분교정앞니가-벌어진-경우_후.jpg" alt="치료 후 사진">
+                                    
+                                    <div class="text __web-inspector-hide-shortcut__">
+                                        <p>의료법상 치료사례 확인은 로그인 후 가능합니다.</p>
+                                        <div class="icon" style="text-align: center; width: 100%;">
+                                            <a href="/auth/kakao/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                            </a>
+                                            <a href="/auth/naver/login/?method=oauth2&amp;next=/beforeafter/">
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+                                            </a>
+                                            <a href="javascript:;" class="login_btn_pop">  
+                                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p class="cap">깨진치아/ 무삭제 라미네이트 진행</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="pic">
-                                        <img src="//cdn.gdajdental.gdaj/img/after.png" alt="치료 후 사진" />
-                                    </div>
-                                    <p class="cap">깨진치아/ 무삭제 라미네이트 진행</p>
-                                </a>
-                            </li>
+                                    
+                                </div>
+                                <p class="cap"><span class="cap__category">[치아교정]</span> 앞니가벌어진경우(부분교정)</p>
+                            </li> {% endcomment %}
+                            
                         </ul>
                         <div class="paging">
                             <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-first"></a>
-                                <a href="#" class="paging-prev"></a>
+                                
+                                    <a href="" class="paging-first"></a>
+                                    <a href="" class="paging-prev"></a>
+                                
                             </span>
-                            <span id=pagingnumber>
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="active">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a href="#">6</a>
-                                <a href="#">7</a>
-                                <a href="#">8</a>
-                                <a href="#">9</a>
-                                <a href="#">10</a>
+                            <span id="pagingnumber">
+                            
+                                
+                                    <a href="" class="active">1</a>
+                                
+                            
                             </span>
                             <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-next active"></a>
-                                <a href="#" class="paging-last active"></a>
+                                
+                                    <a href="" class="paging-next" style="opacity:0.2;"></a>
+                                    <a href="" class="paging-last" style="opacity:0.2;"></a>
+                                
                             </span>
                         </div>
                     </div>

@@ -13,11 +13,7 @@ urlpatterns = [
         views.NoticeDetail.as_view(),
         name="notice_detail",
     ),
-    path("beforeafter", TemplateView.as_view(template_name="posts/beforeafter.html")),
-    path(
-        "beforeafter/<int:pk>",
-        TemplateView.as_view(template_name="posts/beforeafter_detail.html"),
-    ),
+    path("beforeafter", views.BnAView.as_view(), name="bna"),
     path("qna", views.QnaView.as_view(), name="qna"),
     path("qna/write", TemplateView.as_view(template_name="posts/qna_write.html")),
     path("qna/<int:pk>", views.QnaDetail.as_view(), name="qna_detail"),

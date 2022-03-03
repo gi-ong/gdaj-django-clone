@@ -237,21 +237,23 @@
                             </div>
                         </div> {% endcomment %}
                         <!-- 로그인 전 검은색 박스-->
-                        <div class="beflog" style="{% if user.is_authenticated %}opacity:0; {% else %}opacity:1;{% endif %}">
-                            <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
-                            <div class="iconwrap">
-                                <a href="/auth/kakao/login/?method=oauth2&amp;next=/implant/type#bf" class="kakao">
-                                    <img src="/static/img/assets/kakao_af.png" alt="카카오 아이콘">
-                                </a>
-                                <a href="/auth/naver/login/?method=oauth2&amp;next=/implant/type#bf" class="naver" style="margin-right:10px;">
-                                    <img src="/static/img/assets/naver.png" alt="네이버 아이콘">
-                                </a>
-                                <a href="javascript:;" class="login_btn_pop" onclick="document.querySelectorAll('.login_chunk_buttons a').forEach(i=>i.href+='#bf')
-                                    document.querySelector('.popup_login__button').dataset.next='#bf';">
-                                    <img src="/static/img/assets/login.png" alt="로그인 아이콘">
-                                </a>
+                        {% if not user.is_authenticated %}
+                            <div class="beflog">
+                                <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
+                                <div class="iconwrap">
+                                    <a href="/auth/kakao/login/?method=oauth2&amp;next=/implant/type#bf" class="kakao">
+                                        <img src="/static/img/assets/kakao_af.png" alt="카카오 아이콘">
+                                    </a>
+                                    <a href="/auth/naver/login/?method=oauth2&amp;next=/implant/type#bf" class="naver" style="margin-right:10px;">
+                                        <img src="/static/img/assets/naver.png" alt="네이버 아이콘">
+                                    </a>
+                                    <a href="javascript:;" class="login_btn_pop" onclick="document.querySelectorAll('.login_chunk_buttons a').forEach(i=>i.href+='#bf')
+                                        document.querySelector('.popup_login__button').dataset.next='#bf';">
+                                        <img src="/static/img/assets/login.png" alt="로그인 아이콘">
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

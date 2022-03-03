@@ -25,6 +25,51 @@ class AbstractItem(core_models.TimeStampedModel):
 #         verbose_name = "Care Type"
 
 
+class BnAPhoto(core_models.TimeStampedModel):
+
+    """BnAPhoto Model Definition"""
+
+    caption = models.CharField(max_length=80)
+    file = models.ImageField(upload_to="bna_photos")
+    bna = models.ForeignKey(
+        "BnAPost", related_name="bna_photos", on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.caption
+
+
+class BnAPost(core_models.TimeStampedModel):
+
+    """Post Model Definition"""
+
+    TYPE_EVENT = "치아교정"
+    TYPE_NOTICE = "치아미백"
+
+    TYPE_CHOICES = (
+        (TYPE_EVENT, "치아교정"),
+        (TYPE_NOTICE, "치아미백"),
+    )
+    title = models.CharField(max_length=80)
+    bna_type = models.CharField(choices=TYPE_CHOICES, max_length=20)
+    # care_type = models.ForeignKey(
+    #     "CareType", related_name="posts", on_delete=models.CASCADE, blank=True
+    # )
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("posts:beforeafter_detail", kwargs={"pk": self.pk})
+
+    def get_photos(self):
+        try:
+            photos = self.bna_photos.all()
+            return photos
+        except ValueError:
+            return None
+
+
 class NoticePhoto(core_models.TimeStampedModel):
 
     """NoticePhoto Model Definition"""
@@ -47,8 +92,8 @@ class NoticePost(core_models.TimeStampedModel):
     TYPE_NOTICE = "공지"
 
     TYPE_CHOICES = (
-        (TYPE_EVENT, "이벤트"),
-        (TYPE_NOTICE, "공지"),
+        (TYPE_EVENT, "event"),
+        (TYPE_NOTICE, "notice"),
     )
     title = models.CharField(max_length=80)
     text = models.TextField()

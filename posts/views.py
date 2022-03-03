@@ -27,13 +27,26 @@ class NoticeDetail(DetailView):
 def NoticeSearch(request):
 
     category = request.GET.get("c", "all")
-
+    title = request.GET.get("q", "")
     filter_args = {}
     if category != "all":
         filter_args["notice_type"] = category
+    if title != "":
+        filter_args["title__icontains"] = title
 
-    notices = models.Post.objects.filter(**filter_args)
+    notices = models.NoticePost.objects.filter(**filter_args)
     return render(request, "posts/notice_search.html", {"notices": notices})
+
+
+class BnAView(ListView):
+
+    """HomeView Definition"""
+
+    model = models.BnAPost
+    paginate_by = 9
+    ordering = "created"
+    context_object_name = "bnas"
+    template_name = "posts/beforeafter.html"
 
 
 class QnaView(ListView):
