@@ -126,30 +126,7 @@
                                 </tr> {% endcomment %}
                             </tbody>
                         </table>
-                        <div class="paging">
-                            <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-first"></a>
-                                <a href="#" class="paging-prev"></a>
-                            </span>
-                            <span id="pagingnumber">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="active">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a href="#">6</a>
-                                <a href="#">7</a>
-                                <a href="#">8</a>
-                                <a href="#">9</a>
-                                <a href="#">10</a>
-                            </span>
-                            <span class="paging_control">
-                                <a href="" class="paging-next" style="opacity:0.2;"></a>
-                                <a href="" class="paging-last" style="opacity:0.2;"></a>
-                            </span>
-                        </div>
+                        {% include "mixins/paging.html" %}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% block page_title %}온라인 상담 작성{% endblock page_title %}
+{% block head_info %}
+    <meta name="title" content="광덕안정치과의원 온라인상담" />
+    <meta name="keywords" content="광덕안정치과의원,광덕안정,치과,치과병원" />
+    <meta name="description" content="광덕안정치과의원 온라인상담 페이지" />
+    <meta name="subject" content="광덕안정치과의원" />
+    <meta property="og:title" content="광덕안정치과의원 온라인상담" />
+    <meta property="og:description" content="광덕안정치과의원 온라인상담 페이지" />
+    <meta name="twitter:title" content="광덕안정치과의원 온라인상담" />
+    <meta name="twitter:description" content="광덕안정치과의원 온라인상담 페이지" />
+    {% include "mixins/sub_style.html" %}
+{% endblock head_info %}
+
+{% block body_info %}
+        <div class="container">
+            <div class="pagetop pagetop1">
+                <div class="page_hgroup com">
+                    <h1>커뮤니티</h1>
+                    <ul class="catewrap">
+                        <li class="category">
+                            <a href="/posts/notice">공지사항 / 이벤트</a>
+                        </li>
+                        <li class="category">
+                            <a href="/posts/beforeafter">치료 전후사진</a>
+                        </li>
+                        <li class="category  active">
+                            <a href="/posts/qna">온라인상담</a>
+                        </li>
+                        <li class="category">
+                            <a href="/posts/news">언론보도</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <style>
+            .django-ckeditor-widget{
+                width:100%;
+            }
+        </style>
+        <div class="contents on_wri">
+            <div class="center">
+                <h1 class="subtitle">온라인 상담</h1>
+                <!-- 게시판 목록 시작 -->
+                <div class="nolist">
+                    <!-- 게시판 페이지 정보 및 버튼 시작 -->
+                    <div id="no_btn_top">
+                        <div class="tbl_wrap">
+                            <form id="qnawrite" name="qnawrite" method="POST">
+                                {% csrf_token %}
+                                <table class="tbl_counsel_write text_left">
+                                    <caption>온라인 상담 작성란</caption>
+                                    <colgroup>
+                                        <col style="width:95px;">
+                                        <col style="width:505px;">
+                                        <col style="width:95px;">
+                                        <col style="width:505px;">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td>지점<sup>*</sup></td>
+                                            <td>
+                                                {{form.branch}}
+                                                {% comment %} <select name="branch" class="counsel_select_left" required="" id="id_branch">
+                                                    <option value="" selected="">---------</option>
+                                                    <option value="1" selected="selected">이수</option>
+                                                </select> {% endcomment %}
+                                            </td>
+                                            <td>분류<sup>*</sup></td>
+                                            <td>
+                                                {{form.care_type}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>제목<sup>*</sup></td>
+                                            <td colspan="3">
+                                                {{form.title}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>이름<sup>*</sup></td>
+                                            <td>
+                                                {{form.name}}
+                                            </td>
+                                            <td>비밀번호<sup>*</sup></td>
+        
+                                            <td>
+                                                {{form.password}}
+                                                <input type="hidden" name="owner" value="30">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>연락처<sup>*</sup></td>
+                                            <td class="phone_number">
+                                                {{form.phone}}
+                                            </td>
+                                            <td>이메일</td>
+                                            <td>
+                                                {{form.email}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용<sup>*</sup></td>
+                                            <td colspan="3">
+                                                {{form.text}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="counsel_write_submit">
+                                    <div class="counsel_write_policy">
+                                        <div>
+                                            <label><input type="checkbox" class="chkbox" id="agree_chk" name="" value="Y" required="" checked=""> 개인정보
+                                                수집 및 이용에 동의합니다 <a href="javascript:void(0);" class="btn_perinfo_bottom">[보기]</a></label>
+                                        </div>
+                                        <div>
+                                            이 사이트는 구글 reCAPTCHA로 보호되고 있습니다. [
+                                            <a href="https://policies.google.com/privacy" target="_blank">개인정보처리방침
+                                                보기</a>,
+                                            <a href="https://policies.google.com/terms" target="_blank">서비스 약관 보기</a> ]
+                                        </div>
+                                        <input type="hidden" id="recaptcha" class="django-recaptcha-hidden-field" name="g-recaptcha-response" value="03AGdBq27i2Kx6zZko79rI-KidKhC08H76G3a6Blv837uRmXWKD13dsRi4Rl323zJfnbbcXFtXOUB_F5vqyebTPJ16BwdC7pmADF1tG0a2HQ26_gmazxrovtZzLvBkuP5zXu36GDG2BENVaHOb04-_mPZwvPKYWZiF4xFQBHVPQXdIu0eNZw3apTqiMPPD7WsxyhVV9JvuzcCGojagCUfwH0Pvyd5xqjZcr5B9SUYEctFSfyxbmsc8berjvwq_8AtKd2yL-RPWDBaTobDYTW1-JBbPq0rJnvvCDe30M8NUGirUOhvlsbbmE6ZBI9_cUImpW8FZZo40D2TB9P-xtbj-vKarx8UHDEA9s_KwIqQ7CUDxy_tV2QzuS5PP1F3b__8W1dVppAoWhFJzBzoNRss_4vbC5fiEno-ezLNGQ4odaZxkHjbuUAr92qiUjpglOUC0jGUPsvHK-StAz91Hbge_BQX5Jkr15ARUhw">
+                                    </div>
+                                    <div class="counsel_write_btn">
+                                        <button type="button" class="counsel_cancel" onclick="cancelForm();">취소</button>
+                                        <button type="button" name="qnawrite" class="counsel_submit" onclick="submitForm();">등록</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#id_branch > option[value=1]').attr("selected", "true");
+        
+            $('#id_phone_number').attr('maxlength',11);
+        </script>
+        <script>
+            $(document).on('input propertychange', '.only_number', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            });
+        
+            function cancelForm(){
+                if(confirm("작성을 취소하고 이전 화면으로 돌아가시겠습니까?")){
+                    history.back();
+                }
+            }
+            
+            function submitForm() {
+        
+                var reg_pass = RegExp(/^[0-9a-zA-Z!@#$%^&+=_\-]{4,16}$/);
+                var reg_name = RegExp(/^[가-힣]+$/);
+                var reg_email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;//이메일 정규식
+                function confirmSubmit(){
+                    if (confirm("등록하시겠습니까?")) {
+                        $('#qnawrite').submit();
+                    }
+                }
+        
+                if($("#id_branch").val() == ''){
+                    alert("지점을 선택하세요.");
+                    $("#id_branch").focus();
+                    return false;
+                }
+                if($("#id_qna_type").val() == ''){
+                    alert("분류를 선택하세요.");
+                    $("#id_branch").focus();
+                    return false;
+                }
+        
+                if($("#id_title").val() == ''){
+                    alert("제목을 입력하세요.");
+                    $("#id_title").focus();
+                    return false;
+                }
+        
+                if($("#id_author").val() == ''){
+                    alert("이름을 입력하세요.");
+                    $("#id_author").focus();
+                    return false;
+                }
+                if(!reg_name.test($("#id_author").val())) {
+                    alert("잘못된 이름 형식입니다. 한글만 입력해주세요.");
+                    $('#id_author').val("");
+                    $("#id_author").focus();
+                    return false;
+                }
+        
+                
+                    if($("#id_qna_passwd").val() == ''){
+                        alert("비밀번호를 입력하세요.");
+                        $("#id_qna_passwd").focus();
+                        return false;
+                    }
+                    if(!reg_pass.test($("#id_qna_passwd").val())) {
+                        alert("잘못된 비밀번호 형식입니다.");
+                        $('#id_qna_passwd').val("");
+                        $("#id_qna_passwd").focus();
+                        return false;
+                    }
+                
+        
+                if($("#id_phone_number").val() == ''){
+                    alert("연락처를 입력하세요.");
+                    $("#id_phone_number").focus();
+                    return false;
+                }
+        
+                if($("#id_email").val() != ''){
+                    if(!reg_email.test($("#id_email").val())) {
+                        alert("잘못된 이메일 형식입니다.");
+                        $("#id_email").focus();
+                        return false;
+                    }
+                }
+        
+                if($("#id_contents").val() == ''){
+                    alert("내용을 입력하세요.");
+                    $("#id_contents").focus();
+                    return false;
+                }
+        
+                if ($("input:checkbox[id=agree_chk]").is(":checked") !== true) {
+                    alert("약관에 동의 후 이용 가능합니다.");
+                    $("#agree_chk").focus();
+                    return false;
+                }
+                
+                
+        
+                if(location.pathname.indexOf('edit') > -1){
+                    $.ajax({
+                        url: "/qna/check",
+                        method: 'post',
+                        data: {
+                            i_seq : '',
+                            secret_password : $("#id_qna_passwd").val()
+                        },
+                        success: function (result) {
+                            if (!result['check']) {
+                                alert("잘못된 비밀번호입니다.");
+                                $('#id_qna_passwd').focus();
+                                return false;
+                            }
+                            else{
+                                confirmSubmit();
+                            }
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                        }
+                    });
+                }else{
+                    confirmSubmit();
+                }
+        
+            }
+        </script>
+{% endblock body_info %}
+{% block sub_script %}
+    {% include "mixins/sub_script.html" %}
+{% endblock sub_script %}

@@ -48,7 +48,7 @@
                     <div id="no_btn_top">
                         <div class="no_list_total">
                             <span>
-                                총 <span>3</span> 건
+                                총 <span>{{newses.count}}</span> 건
                             </span>
                         </div>
                     </div>
@@ -69,52 +69,13 @@
                                     <th>날짜</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_530">오픈 이벤트 안내</p>
-                                        </a>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_530">오픈 이벤트 안내</p>
-                                        </a>
-                                    </td>
-                                    <td>2021.08.31</td>
-                                </tr>
+                            <tbody>    
+                                {% for news in newses %}
+                                    {% include 'mixins/news_list.html' with news=news %}
+                                {% endfor %}
                             </tbody>
                         </table>
-                        <div class="paging">
-                            <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-first"></a>
-                                <a href="#" class="paging-prev"></a>
-                            </span>
-                            <span id=pagingnumber>
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="active">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a href="#">6</a>
-                                <a href="#">7</a>
-                                <a href="#">8</a>
-                                <a href="#">9</a>
-                                <a href="#">10</a>
-                            </span>
-                            <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-next active"></a>
-                                <a href="#" class="paging-last active"></a>
-                            </span>
-                        </div>
+                        {% include "mixins/paging.html" %}
                     </div>
                 </div>
             </div>

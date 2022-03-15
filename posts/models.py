@@ -119,14 +119,28 @@ class NoticePost(core_models.TimeStampedModel):
             return None
 
 
+class QnaAnswerPost(core_models.TimeStampedModel):
+
+    """QnaAnswerPost Model Definition"""
+
+    answer_text = models.TextField(blank=True)
+    qna = models.ForeignKey("QnaPost", related_name="answers", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.qna.title
+
+    def get_absolute_url(self):
+        return reverse("posts:qna_detail", kwargs={"pk": self.qna.pk})
+
+
 class QnaPost(core_models.TimeStampedModel):
 
     """Post Model Definition"""
 
-    TYPE_GNRAL = "gnral"
-    TYPE_IMP = "imp"
-    TYPE_ALIGN = "align"
-    TYPE_BEAUTY = "beauty"
+    TYPE_GNRAL = "일반치료"
+    TYPE_IMP = "임플란트"
+    TYPE_ALIGN = "치아교정"
+    TYPE_BEAUTY = "치아미백"
 
     TYPE_CHOICES = (
         (TYPE_GNRAL, "일반치료"),
@@ -145,14 +159,60 @@ class QnaPost(core_models.TimeStampedModel):
     email = models.EmailField(max_length=50, blank=True)
     password = models.CharField(max_length=50)
     host = models.ForeignKey(
-        "users.User", related_name="qna", on_delete=models.CASCADE, blank=True
+        "users.User",
+        related_name="qna",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
+    # answer_text = models.TextField(blank=True)
     # care_type = models.ForeignKey(
     #     "CareType", related_name="posts", on_delete=models.CASCADE, blank=True
     # )
+
+    def qna_answer(self):
+        answer_text = self.answers.all()
+        return answer_text
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("posts:qna_detail", kwargs={"pk": self.pk})
+
+
+class NewsPhoto(core_models.TimeStampedModel):
+
+    """NewsPhoto Model Definition"""
+
+    caption = models.CharField(max_length=80)
+    file = models.ImageField(upload_to="news_photo")
+    notice = models.ForeignKey(
+        "NewsPost", related_name="news_photos", on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.caption
+
+
+class NewsPost(core_models.TimeStampedModel):
+
+    """Post Model Definition"""
+
+    title = models.CharField(max_length=80)
+    text = models.TextField()
+    content = models.CharField(max_length=40)
+    news_url = models.URLField(max_length=500)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("posts:news_detail", kwargs={"pk": self.pk})
+
+    def get_photos(self):
+        try:
+            photos = self.news_photos.all()
+            return photos
+        except ValueError:
+            return None

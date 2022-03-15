@@ -1,0 +1,10 @@
+<tr>
+        <td>{{news.pk}}</td>
+        <td class="title">
+            <a href="{% url 'posts:news_detail' news.pk %}">
+                <p class="text_overflow w_530">[{{news.content}}]{{news.title}}</p>
+            </a>
+        </td>
+        <td>{{news.created|date:'Y.m.d'}}</td>
+</tr>
+    

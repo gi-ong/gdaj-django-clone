@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%load static %}
 {% block page_title %}온라인 상담{% endblock page_title %}
 {% block head_info %}
     <meta name="title" content="광덕안정치과의원 온라인상담" />
@@ -48,7 +49,7 @@
                     <div id="no_btn_top">
                         <div class="no_list_total">
                             <span>
-                                총 <span>11</span> 건
+                                총 <span>{{qnas.count}}</span> 건
                             </span>
                         </div>
                         <form>
@@ -64,7 +65,7 @@
                                 <li class="sec">
                                     <input class="sch_input" type="text" placeholder="검색">
                                     <a href="#">
-                                        <img src="//cdn.gdajdental.gdaj/img/assets/search.png" alt="검색 버튼" />
+                                        <img src="{% static "/img/assets/search.png" %}" alt="검색 버튼" />
                                     </a>
                                 </li>
                             </ul>
@@ -94,94 +95,60 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>이수점</td>
-                                    <td>임플란트</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_530">오픈 이벤트 안내</p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="p_c_status"><span class="c_status c_s_wait">상담대기</span></p>
-                                    </td>
-                                    <td>테ㅇ트</td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr class="c_tr_secret">
-                                    <td colspan="2"></td>
-                                    <td colspan="4" class="title">
-                                        <div class="secret_text">비공개 글입니다.</div>
-                                        <div>
-                                            <form id="" name="" action="" method="">
-                                                <input type="password" id="secret_seq" name="secret_seq" value=""
-                                                    maxlength="20" placeholder="비밀번호를 입력해주세요." />
-                                                <button type="button" class="btnSubmit" data-value="seq">확인</button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>이수점</td>
-                                    <td>임플란트</td>
-                                    <td class="title">
-                                        <a href="#">
-                                            <p class="text_overflow w_530">오픈 이벤트 안내</p>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="p_c_status"><span class="c_status c_s_complete">상담완료</span></p>
-                                    </td>
-                                    <td>테ㅇ트</td>
-                                    <td>2021.08.31</td>
-                                </tr>
-                                <tr class="c_tr_secret">
-                                    <td colspan="2"></td>
-                                    <td colspan="4" class="title">
-                                        <div class="secret_text">비공개 글입니다.</div>
-                                        <div>
-                                            <form id="" name="" action="" method="">
-                                                <input type="password" id="secret_seq" name="secret_seq" value=""
-                                                    maxlength="20" placeholder="비밀번호를 입력해주세요." />
-                                                <button type="button" class="btnSubmit" data-value="seq">확인</button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                                {% for qna in qnas %}
+                                    {% include 'mixins/qna_list.html' with qna=qna %}
+                                {% endfor %}
+                                
                             </tbody>
                         </table>
-                        <div class="paging">
-                            <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-first"></a>
-                                <a href="#" class="paging-prev"></a>
-                            </span>
-                            <span id=pagingnumber>
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="active">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a href="#">6</a>
-                                <a href="#">7</a>
-                                <a href="#">8</a>
-                                <a href="#">9</a>
-                                <a href="#">10</a>
-                            </span>
-                            <span class="paging_control">
-                                <!-- 활성화시 class.active 효과 추가해주세요 -->
-                                <a href="#" class="paging-next active"></a>
-                                <a href="#" class="paging-last active"></a>
-                            </span>
-                        </div>
+                        {% include "mixins/paging.html" %}
                         <div class="counsel_list_btn">
-                            <a href="#"><button type="button">글쓰기</button></a>
+                            <a href="/posts/qna/create">
+                                <button type="button" style="cursor:pointer;">글쓰기</button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                $('.qna_passwd').keypress(function(e) {
+                    if(e.keyCode == 13) {
+                        CheckSubmit($(this).attr("data-pk"));
+                    }
+                });
+            });
+        
+            function CheckSubmit(i_seq) {
+                if($("#secret_password_"+i_seq).val() == ''){
+                    alert('비밀번호를 입력해주세요.');
+                    $('#secret_password_'+i_seq).focus();
+                    return;
+                }
+                $.ajax({
+                    url: "/posts/qna/check",
+                    method: 'post',
+                    data: {
+                        i_seq : i_seq,
+                        secret_password : $("#secret_password_"+i_seq).val()
+                    },
+                    success: function (result) {
+                        $("#sms_tr").show();
+                        if (result['check']) {
+                            document.location.href=result['url'];
+                            return;
+                        } else {
+                            alert("잘못된 비밀번호입니다.");
+                            $('#secret_password_'+i_seq).focus();
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+            }
+        
+        </script>
 {% endblock body_info %}
 {% block sub_script %}
     {% include "mixins/sub_script.html" %}

@@ -13,6 +13,11 @@ class BnAPhotoInline(admin.TabularInline):
     model = models.BnAPhoto
 
 
+class NewsPhotoInline(admin.TabularInline):
+
+    model = models.NewsPhoto
+
+
 @admin.register(models.BnAPost)
 class BnAAdmin(admin.ModelAdmin):
 
@@ -67,6 +72,29 @@ class NoticePhotoAdmin(admin.ModelAdmin):
 class BnAPhotoAdmin(admin.ModelAdmin):
 
     """BnAPhoto Admin Definition"""
+
+    list_display = ("__str__", "get_thumbnail")
+
+    def get_thumbnail(self, obj):
+        return mark_safe(f'<img width="50px" src="{obj.file.url}" />')
+
+    get_thumbnail.short_description = "Thumbnail"
+
+
+@admin.register(models.NewsPost)
+class NewsAdmin(admin.ModelAdmin):
+
+    """NewsPost Admin Definition"""
+
+    inlines = (NewsPhotoInline,)
+
+    list_display = ("title", "content")
+
+
+@admin.register(models.NewsPhoto)
+class NewsPhotoAdmin(admin.ModelAdmin):
+
+    """News Photo Admin Definition"""
 
     list_display = ("__str__", "get_thumbnail")
 

@@ -41,15 +41,16 @@
                 <div class="no_info">
                     <div class="tbl_counsel_view">
                         <ul>
-                            <li class="tbl_counsel_view_branch">이수점/임플란트</li>
-                            <li class="tbl_counsel_view_title">윗니 양쪽 어금니 발치 및 임플란트 시술과정</li>
-                            <li class="tbl_counsel_view_name">테ㅇ트</li>
-                            <li class="tbl_counsel_view_date">2021.10.10</li>
+                            <li class="tbl_counsel_view_branch">{{qna_detail.branch}}/{{qna_detail.care_type}}</li>
+                            <li class="tbl_counsel_view_title">{{qna_detail.title}}</li>
+                            <li class="tbl_counsel_view_name">{{qna_detail.name}}</li>
+                            <li class="tbl_counsel_view_date">{{qna_detail.created|date:'Y-m-d'}}</li>
                             <li class="tbl_counsel_view_status">
-                                <!--
-                                <span class="c_s_wait">상담대기</span>
-                                -->
-                                <span class="c_s_complete">상담대기</span>
+                                {% if qna_detail.answer_text %}
+                                    <span class="c_status c_s_complete">상담완료</span>
+                                {% else %}    
+                                    <span class="c_status c_s_wait">상담대기</span>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
@@ -57,18 +58,25 @@
                 <div class="tbl_counsel_view_contents">
                     <div class="counsel_q_title">상담내용</div>
                     <div class="counsel_q_contents">
-                        상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용상담내용
+                        {{qna_detail.text}}
                     </div>
-                    <div class="counsel_a_title">답변내용</div>
-                    <div class="counsel_a_contents">
-                        답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용
-                        답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용답변내용
-                    </div>
+                    {% if qna_detail.answer_text %}
+                        <div class="counsel_a_title">답변내용</div>
+                        <div class="counsel_a_contents">
+                            {{qna_detail.answer_text}}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="tbl_counsel_view_contents_btn">
-                    <a href="#"><span class="modifybtn">삭제</span></a>
-                    <a href="#"><span class="deletebtn">수정</span></a>
-                    <a href="#"><span class="listbtn">목록</span></a>
+                    {% if user.is_staff %}
+                        {% if qna_detail.answer_text %}
+                            <a href="{% url 'posts:qna_a_delete' qna_detail.pk %}"><span class="modifybtn">삭제</span></a>
+                            <a href="{% url 'posts:qna_a_edit' qna_detail.pk %}"><span class="deletebtn">수정</span></a>
+                        {% else %}
+                            <a href="#"><span class="modifybtn">답변작성</span></a>
+                        {% endif %}
+                    {% endif %}
+                    <a href="/posts/qna"><span class="listbtn">목록</span></a>
                 </div>
             </div>
         </article>

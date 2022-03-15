@@ -51,11 +51,11 @@
                                 건
                             </span>
                         </div>
-                        <form class="search_form">
+                        <form type="GET" action="/posts/beforeafter/search" class="search_form">
                             <ul>
                                 <li class="fir">
                                     <select class="selbox" name="type">
-                                        <option value="tc">전체</option>
+                                        <option value="all">전체</option>
                                         <option value="title">제목</option>
                                         <option value="contents">내용</option>
                                     </select>
@@ -190,27 +190,7 @@
                             </li> {% endcomment %}
                             
                         </ul>
-                        <div class="paging">
-                            <span class="paging_control">
-                                
-                                    <a href="" class="paging-first"></a>
-                                    <a href="" class="paging-prev"></a>
-                                
-                            </span>
-                            <span id="pagingnumber">
-                            
-                                
-                                    <a href="" class="active">1</a>
-                                
-                            
-                            </span>
-                            <span class="paging_control">
-                                
-                                    <a href="" class="paging-next" style="opacity:0.2;"></a>
-                                    <a href="" class="paging-last" style="opacity:0.2;"></a>
-                                
-                            </span>
-                        </div>
+                        {% include "mixins/paging.html" %}
                     </div>
                 </div>
             </div>

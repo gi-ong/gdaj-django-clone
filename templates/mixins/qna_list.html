@@ -1,0 +1,35 @@
+<tr onclick="$('.c_tr_secret').hide(); $('.secret_{{qna.pk}}').toggle();" style="cursor: pointer">
+                            
+    <td>{{qna.branch}}</td>
+    <td>{{qna.care_type}}</td>
+    <td class="title">
+        <p class="text_overflow w_580">
+            {{qna.title}}
+        </p>
+    </td>
+    <td>
+        
+            <p class="p_c_status">
+                {% if qna.answer_text %}
+                    <span class="c_status c_s_complete">상담완료</span>
+                {% else %}
+                    <span class="c_status c_s_wait">상담대기</span>
+                {% endif %}
+            </p>
+        
+    </td>
+    <td>{{qna.name}}</td>
+    <td>{{qna.created|date:'Y.m.d'}}</td>
+</tr>
+<tr class="c_tr_secret secret_{{qna.pk}}" style="display: none;">
+    <td colspan="2"></td>
+    <td colspan="4" class="title">
+        <div class="secret_text">비공개 글입니다.</div>
+        <div>
+            
+                <input type="password" name="qna_passwd" placeholder="비밀번호를 입력해주세요." class="qna_passwd" id="secret_password_{{qna.pk}}" data-pk="{{qna.pk}}" required="">
+            
+            <button type="button" class="btnSubmit" onclick="CheckSubmit('{{qna.pk}}')" style="cursor: pointer;">확인</button>
+        </div>
+    </td>
+</tr>

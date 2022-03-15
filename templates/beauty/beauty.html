@@ -34,8 +34,8 @@
                 <div class="ic int">
                     <div class="tt">
                         <p class="quot quot1">“</p>
-                        <p class="t_l_42">치아미백 치료, 이제 하루면 충분합니다.</p>
-                        <p class="t_b_50">광덕안정 치아미백</p>
+                        <p class="t_l_42">치아미백 치료, 이제 하루면 충분합니다</p>
+                        <p class="t_b_50">광덕안정치과 치아미백</p>
                         <p class="quot quot2">”</p>
                         <p class="t_m_24">
                             <strong>특수 미백제로 1일 내원 시 3번의 집중 시술</strong> 이 가능하여, 단 시간에 치아를 하얗게 만들어 드립니다.
@@ -65,16 +65,16 @@
             </div>
             <div class="oc foc">
                 <div class="center">
-                    <p class="t_l_42">광덕안정 치과는 다릅니다</p>
-                    <p class="t_b_50">광덕안정 치아미백 프로그램</p>
+                    <p class="t_l_42">광덕안정치과는 다릅니다</p>
+                    <p class="t_b_50">광덕안정치과 치아미백 프로그램</p>
                     <table>
                         <thead>
                             <tr class="stit">
                                 <td>일반 치과 치아미백 프로그램</td>
                                 <td class="vs">
-                                    <img src="//cdn.gdajdental.gdaj/img/assets/vs2.png" alt="vs">
+                                    <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/vs2.png" alt="vs">
                                 </td>
-                                <td>광덕안정 치아미백 프로그램</td>
+                                <td>광덕안정치과 치아미백 프로그램</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,19 +95,35 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="aflog">
-                        <img src="//cdn.gdajdental.gdaj/img/aflog.png" alt="1일 3회 미백 집중 시술 변화 사진">
-                    </div>
-                    <div class="beflog" style="{% if user.is_authenticated %}opacity:0; {% else %}opacity:1;{% endif %}">
-                        <p class="text">의료법상 치료사례 정보는 로그인후 가능합니다</p>
-                        <div class="iconwrap">
-                            <a href="#" class="kakao">
-                                <img src="//cdn.gdajdental.gdaj/m/img/assets/kakao_af_2.png" alt="카카오 아이콘">
-                            </a>
-                            <a href="#" class="naver">
-                                <img src="//cdn.gdajdental.gdaj/m/img/assets/naver.png" alt="네이버 아이콘">
-                            </a>
+                    <div class="beaf" id="bf">
+                        <div class="aflog">
+                            <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/aflog.png" alt="1일 3회 미백 집중 시술 변화 사진">
                         </div>
+                        
+                            <style>
+                                .beflog{
+                                    position: absolute;
+                                    top: 2300px
+                                }
+                            </style>
+                            
+    
+    <div class="beflog" style="opacity:1;">
+        <p class="text">의료법상 치료사례 정보는 로그인 후 확인 가능합니다</p>
+        <div class="iconwrap">
+            <a href="/auth/kakao/login/?method=oauth2&amp;next=/beauty/#bf" class="kakao">
+                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/kakao_af.png" alt="카카오 아이콘">
+            </a>
+            <a href="/auth/naver/login/?method=oauth2&amp;next=/beauty/#bf" class="naver" style="margin-right:10px;">
+                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/naver.png" alt="네이버 아이콘">
+            </a>
+            <a href="javascript:;" class="login_btn_pop" onclick="document.querySelectorAll('.login_chunk_buttons a').forEach(i=>i.href+='#bf')
+                document.querySelector('.popup_login__button').dataset.next='#bf';">
+                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/assets/login.png" alt="로그인 아이콘">
+            </a>
+        </div>
+    </div>
+                        
                     </div>
                 </div>
             </div>
@@ -141,44 +157,44 @@
                         </li>
                     </ul>
                     <!-- 20211119 수정 끝 -->
-                    <img class="img" src="//cdn.gdajdental.gdaj/img/aesma.png" alt="오스템 뷰티스 미백 최신장비" />
+                    <img class="img" src="//cdn.gdaj.net/dentalweb/cdn/statics/img/aesma.png" alt="오스템 뷰티스 미백 최신장비">
                 </div>
             </div>
             <div class="center">
                 <div class="ic pro">
                     <div class="tt">
-                        <p class="t_b_50">광덕안정 치아미백 치료과정</p>
-                        <p class="t_r_22">광덕안정은 식약청 허가를 통하여 안전성 검증을 받고 효과가 뛰어난 오스템 뷰티스 미백 제품을 사용합니다</p>
+                        <p class="t_b_50">광덕안정치과 치아미백 치료과정</p>
+                        <p class="t_r_22">광덕안정치과는 식약청 허가를 통하여 안전성 검증을 받고 효과가 뛰어난 오스템 뷰티스 미백 제품을 사용합니다</p>
                     </div>
                     <ul>
                         <li>
                             <div class="img">
-                                <img src="//cdn.gdajdental.gdaj/img/step1.png" alt="STEP1" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/step1.png" alt="STEP1">
                             </div>
                             <div class="twrap">
                                 <!-- 20211119 수정 시작 -->
                                 <p class="step">STEP 01</p>
                                 <p class="des">
-                                    시술 전 맞춤치료를 위한 <br />
+                                    시술 전 맞춤치료를 위한 <br>
                                     정밀한 검진과 상담
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="img">
-                                <img src="//cdn.gdajdental.gdaj/img/step2.png" alt="STEP2" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/step2.png" alt="STEP2">
                             </div>
                             <div class="twrap">
                                 <p class="step">STEP 02</p>
                                 <p class="des">
-                                    최고의 미백 효과를 위한 <br />
+                                    최고의 미백 효과를 위한 <br>
                                     치아 컨디셔닝스케일링 서비스 제공
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="img">
-                                <img src="//cdn.gdajdental.gdaj/img/step3.png" alt="STEP3" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/step3.png" alt="STEP3">
                             </div>
                             <div class="twrap">
                                 <p class="step">STEP 03</p>
@@ -187,7 +203,7 @@
                         </li>
                         <li>
                             <div class="img">
-                                <img src="//cdn.gdajdental.gdaj/img/step4.png" alt="STEP4" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/step4.png" alt="STEP4">
                             </div>
                             <div class="twrap">
                                 <p class="step">STEP 04</p>
@@ -196,19 +212,19 @@
                         </li>
                         <li>
                             <div class="img">
-                                <img src="//cdn.gdajdental.gdaj/img/step5.png" alt="STEP5" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/step5.png" alt="STEP5">
                             </div>
                             <div class="twrap">
                                 <p class="step">STEP 05</p>
                                 <p class="des">
-                                    3회 집중 치료 후 <br />
+                                    3회 집중 치료 후 <br>
                                     정확한 미백 상태 확인
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="img">
-                                <img src="//cdn.gdajdental.gdaj/img/step6.png" alt="STEP6" />
+                                <img src="//cdn.gdaj.net/dentalweb/cdn/statics/img/step6.png" alt="STEP6">
                             </div>
                             <div class="twrap">
                                 <p class="step">STEP 06</p>

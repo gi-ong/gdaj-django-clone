@@ -2217,7 +2217,7 @@ header#toph .bot_nav .menu li a {
 
 }
 
-.contents .center .nolist .tbl_wrap table tbody tr td {
+.contents .center .nolist .tbl_wrap table tbody tr {
     border-bottom: 1px solid #f2f2f2;
 }
 
@@ -2263,9 +2263,10 @@ header#toph .bot_nav .menu li a {
     letter-spacing: -0.025em;
 }
 
-.contents .center .nolist .tbl_wrap table .title {
-    padding-left: 40px;
-    text-align: left;
+.contents .center .nolist .tbl_wrap table .title p{
+    box-sizing: border-box;
+    padding: 0 40px;
+    text-align: left!important;
 }
 
 .contents .center .nolist .tbl_wrap table .title a:hover {
