@@ -60,11 +60,14 @@
                     <div class="counsel_q_contents">
                         {{qna_detail.text}}
                     </div>
+                    
                     {% if qna_detail.answer_text %}
                         <div class="counsel_a_title">답변내용</div>
                         <div class="counsel_a_contents">
                             {{qna_detail.answer_text}}
                         </div>
+                    {% else %}
+                        {{form.answer_text}}    
                     {% endif %}
                 </div>
                 <div class="tbl_counsel_view_contents_btn">
@@ -73,7 +76,7 @@
                             <a href="{% url 'posts:qna_a_delete' qna_detail.pk %}"><span class="modifybtn">삭제</span></a>
                             <a href="{% url 'posts:qna_a_edit' qna_detail.pk %}"><span class="deletebtn">수정</span></a>
                         {% else %}
-                            <a href="#"><span class="modifybtn">답변작성</span></a>
+                            <a href="#" id="qna_a"><span class="modifybtn">답변작성</span></a>
                         {% endif %}
                     {% endif %}
                     <a href="/posts/qna"><span class="listbtn">목록</span></a>

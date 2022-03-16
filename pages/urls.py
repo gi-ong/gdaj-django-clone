@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic import TemplateView
+from . import views
 
-# from .views import StaticRouteView
 
 app_name = "pages"
 
@@ -11,8 +11,7 @@ urlpatterns = [
         "branch/isu",
         TemplateView.as_view(template_name="branch/branch_isu.html"),
     ),
-    # path("<path:route>", StaticRouteView.as_view(), name="route"),
-    path("intro/branch", TemplateView.as_view(template_name="intro/intro_branch.html")),
+    path("intro/branch", views.BranchView.as_view(), name="branch"),
     path("intro/ci", TemplateView.as_view(template_name="intro/intro_ci.html")),
     path("intro", TemplateView.as_view(template_name="intro/intro.html")),
     path("implant/type/", TemplateView.as_view(template_name="imp/imp_type.html")),

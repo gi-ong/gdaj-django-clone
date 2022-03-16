@@ -68,7 +68,7 @@ class CreateQnaForm(forms.ModelForm):
 
 class CreateQnaAnswerForm(forms.ModelForm):
     class Meta:
-        model = models.QnaPost
+        model = models.QnaAnswerPost
         fields = ("answer_text",)
 
     def __init__(self, *args, **kwargs):

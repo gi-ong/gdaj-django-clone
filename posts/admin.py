@@ -33,6 +33,14 @@ class BnAAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(models.QnaAnswerPost)
+class QnaAnswerAdmin(admin.ModelAdmin):
+
+    """QnaAnswer Admin Definition"""
+
+    list_display = ("qnas",)
+
+
 @admin.register(models.QnaPost)
 class QnaAdmin(admin.ModelAdmin):
 
@@ -41,6 +49,26 @@ class QnaAdmin(admin.ModelAdmin):
     list_filter = ("care_type", "branch")
 
     list_display = ("title", "branch", "care_type", "name", "phone")
+
+    fieldsets = (
+        (
+            "info",
+            {
+                "fields": (
+                    "title",
+                    "branch",
+                    "care_type",
+                    "name",
+                    "phone",
+                    "email",
+                    "password",
+                    "host",
+                    "text",
+                    "answer_text",
+                )
+            },
+        ),
+    )
 
 
 @admin.register(models.NoticePost)

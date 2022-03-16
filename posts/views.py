@@ -153,7 +153,7 @@ class CreateQnaView(FormView):
 class CreateQnaAnswerView(FormView):
 
     form_class = forms.CreateQnaAnswerForm
-    template_name = "posts/qna_create.html"
+    template_name = "posts/qna_detail.html"
 
     def form_valid(self, form):
         answer = form.save()

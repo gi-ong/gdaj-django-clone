@@ -1,6 +1,7 @@
 from django.db import models
 from core import models as core_models
 from posts.models import AbstractItem
+from django.urls import reverse
 
 
 class Branch(AbstractItem):
@@ -10,18 +11,13 @@ class Branch(AbstractItem):
     class Meta:
         verbose_name = "Branch"
 
-    # class Page(core_models.TimeStampedModel):
 
-    """Page Model Definition"""
+class BranchWithUrl(core_models.TimeStampedModel):
 
-    # BRANCH_ISU = "isu"
-    # BRANCH_SNU = "snu"
-    # BRANCH_GANGNAM = "gangnam"
+    branch_name = models.ForeignKey(
+        "Branch", related_name="branches", on_delete=models.CASCADE
+    )
+    url_name = models.CharField(max_length=20)
 
-    # BRANCH_CHOICES = (
-    #     (BRANCH_ISU, "이수"),
-    #     (BRANCH_SNU, "서울대입구"),
-    #     (BRANCH_GANGNAM, "강남"),
-    # )
-
-    # branch = models.CharField(choices=BRANCH_CHOICES, max_length=10, blank=True)
+    def get_absolute_url(self):
+        return reverse("pages:branch")

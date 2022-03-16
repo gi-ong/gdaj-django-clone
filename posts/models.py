@@ -124,13 +124,15 @@ class QnaAnswerPost(core_models.TimeStampedModel):
     """QnaAnswerPost Model Definition"""
 
     answer_text = models.TextField(blank=True)
-    qna = models.ForeignKey("QnaPost", related_name="answers", on_delete=models.CASCADE)
+    qnas = models.ForeignKey(
+        "QnaPost", related_name="answers", on_delete=models.CASCADE
+    )
 
     def __str__(self):
-        return self.qna.title
+        return self.answer_text
 
     def get_absolute_url(self):
-        return reverse("posts:qna_detail", kwargs={"pk": self.qna.pk})
+        return reverse("posts:qna_detail", kwargs={"pk": self.qnas.pk})
 
 
 class QnaPost(core_models.TimeStampedModel):
@@ -165,14 +167,20 @@ class QnaPost(core_models.TimeStampedModel):
         blank=True,
         null=True,
     )
-    # answer_text = models.TextField(blank=True)
+    answer_text = models.ForeignKey(
+        "QnaAnswerPost",
+        related_name="qna",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
     # care_type = models.ForeignKey(
     #     "CareType", related_name="posts", on_delete=models.CASCADE, blank=True
     # )
 
-    def qna_answer(self):
-        answer_text = self.answers.all()
-        return answer_text
+    # def qna_answer(self):
+    #     answer_text = self.answers.all()
+    #     return answer_text
 
     def __str__(self):
         return self.title

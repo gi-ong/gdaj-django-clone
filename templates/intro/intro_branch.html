@@ -44,10 +44,12 @@
                     </div>
                     <div class="s_b_c_branch">
                         <ul>
-                            <li><a href="/branch/isu">이수점</a></li>
-                            <li><a href="/branch/gn">강남점</a></li>
+                            {% for branch in branches %}
+                                <li><a href="/branch/{{branch.url_name}}">{{branch.branch_name}}</a></li>
+                            {% endfor %}
+                                {% comment %} <li><a href="/branch/gn">강남점</a></li>
                             <li><a href="/brnach/ddm">동대문점</a></li>
-                            <li><a href="/brnach/snu">서울대 입구점</a></li>
+                            <li><a href="/brnach/snu">서울대 입구점</a></li> {% endcomment %}
                         </ul>
                     </div>
                     <div class="s_b_c_map">
